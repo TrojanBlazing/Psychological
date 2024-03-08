@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    private PortalableObject portalableObject;
     PlayerInputAction playerInputAction;
 
     public bool CanMove { get; private set; }
@@ -70,11 +70,13 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] GameObject InventoryUI;
     int inventoryToggle = 0;
+    
     private void Start()
     {
 
-       
-       
+        portalableObject = GetComponent<PortalableObject>();
+        portalableObject.HasTeleported += PortalableObjectOnHasTeleported;
+
         #region Input Setup
         //Input Setup
         playerInputAction = new PlayerInputAction();
@@ -97,6 +99,17 @@ public class PlayerMovement : MonoBehaviour
         defaultYPos = playerCam.transform.localPosition.y;
     }
 
+    private void PortalableObjectOnHasTeleported(Portal sender, Portal destination, Vector3 newposition, Quaternion newrotation)
+    {
+        // For character controller to update
+
+        Physics.SyncTransforms();
+    }
+
+    private void OnDestroy()
+    {
+        portalableObject.HasTeleported -= PortalableObjectOnHasTeleported;
+    }
     void InventoryToggle()
     {
         if (inventoryToggle == 0)
@@ -135,20 +148,26 @@ public class PlayerMovement : MonoBehaviour
     {
         isSprinting = false;
     }
-    void Update()
+    private void Update()
     {
         if (CanMove)
         {
             HandleMovement();
-            HandleMouse();
+             HandleMouse();
 
-                if (canHeadBob)
-                {
-                    HeadBob();
-                }
-            
+            if (canHeadBob)
+            {
+                HeadBob();
+            }
+        }
+        }
+
+    void FixedUpdate()
+    {
+        if (CanMove)
+        {
             ApplyMovement();
-
+            
         }
 
     }
@@ -283,7 +302,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             characterController.Move(moveDirection * Time.deltaTime);
-
+         
         }
 
     }
