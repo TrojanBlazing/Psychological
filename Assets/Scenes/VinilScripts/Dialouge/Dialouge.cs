@@ -10,25 +10,32 @@ public class Dialouge : MonoBehaviour
     private GameObject Act;
 
     [SerializeField]
-    private TextMeshProUGUI text;
+    private GameObject text;
     public string dialouge = "Let me Check on Varun";
 
     public float timer = 3f;
 
     private void Start()
     {
-        text.GetComponent<TextMeshProUGUI>().enabled = false;
+        text.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag=="Player")
         {
-            text.GetComponent<TextMeshProUGUI>().enabled = true;
-            text.text = dialouge.ToString();
-           // Destroy(Act);
+
+            text.SetActive(true);
+           
+            StartCoroutine(TextDisable());
+           
         }
     }
-
+    IEnumerator TextDisable()
+    {
+        yield return new WaitForSeconds(timer);
+        text.SetActive(false);
+        Destroy( Act ); 
+    }
 
 }

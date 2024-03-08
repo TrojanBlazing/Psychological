@@ -17216,7 +17216,7 @@ GameObject:
   - component: {fileID: 662242769}
   - component: {fileID: 662242768}
   m_Layer: 0
-  m_Name: Door (1)
+  m_Name: varunText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17269,8 +17269,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 20.24
+  m_fontSizeBase: 20.24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17335,7 +17335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -19}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &664854411
@@ -41807,8 +41807,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Act: {fileID: 1223724536}
-  text: {fileID: 662242768}
-  dialouge: '"Let me Check on Varun"'
+  text: {fileID: 662242767}
+  dialouge: Let me Check on Varun
   timer: 3
 --- !u!65 &1223724538
 BoxCollider:
@@ -41829,8 +41829,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 25.547676, y: 4.5953646, z: 6.3280163}
-  m_Center: {x: -0.77459335, y: 1.7976823, z: 4.4488134}
+  m_Size: {x: 24.178505, y: 4.5953646, z: 6.3280163}
+  m_Center: {x: -0.80104065, y: 1.7976823, z: 4.4488134}
 --- !u!23 &1223724539
 MeshRenderer:
   m_ObjectHideFlags: 0
