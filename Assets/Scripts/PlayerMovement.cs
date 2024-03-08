@@ -90,8 +90,8 @@ public class PlayerMovement : MonoBehaviour
         #endregion
         playerCam = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
-        //Cursor.lockState = CursorLockMode.Locked;
-       //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+       Cursor.visible = false;
         CanMove = true;
         defaultFOV = playerCam.fieldOfView;
         defaultYPos = playerCam.transform.localPosition.y;
