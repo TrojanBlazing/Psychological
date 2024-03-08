@@ -10,6 +10,9 @@ public class Dialouge : MonoBehaviour
     private GameObject Act;
 
     [SerializeField]
+    private AudioSource am;
+
+    [SerializeField]
     private GameObject text;
     public string dialouge = "Let me Check on Varun";
 
@@ -26,6 +29,7 @@ public class Dialouge : MonoBehaviour
         {
 
             text.SetActive(true);
+            am.Play();
            
             StartCoroutine(TextDisable());
            
