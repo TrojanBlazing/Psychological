@@ -6,6 +6,7 @@ using TMPro;
 
 public class Dialouge : MonoBehaviour
 {
+    
     [SerializeField]
     private GameObject Act;
 
@@ -21,16 +22,17 @@ public class Dialouge : MonoBehaviour
     private void Start()
     {
         text.SetActive(false);
+     
+      
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag=="Player")
         {
-
+           
             text.SetActive(true);
             am.Play();
-           
             StartCoroutine(TextDisable());
            
         }

@@ -10,6 +10,9 @@ public class InterDisable : MonoBehaviour
     private GameObject door;
 
     [SerializeField]
+    private GameObject Window;
+
+    [SerializeField]
     private GameObject Act;
 
     [SerializeField]
@@ -35,6 +38,7 @@ public class InterDisable : MonoBehaviour
             text.SetActive(true);
             am.Play();
             door.gameObject.SetActive(true);
+            Window.gameObject.SetActive(true);
 
             StartCoroutine(TextDisable());
 
