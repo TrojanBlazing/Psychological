@@ -18,4 +18,4 @@ MonoBehaviour:
 '
   removeAfterExit: 1
   disableAfterTimer: 0
-  DisableTimer: 5
+  DisableTimer: 3.5
