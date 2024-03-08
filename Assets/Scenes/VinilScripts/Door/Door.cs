@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private Transform pcamera;
+     private Camera pcamera;
     [SerializeField] private float maxDistance = 3;
     public GameObject text;
 
@@ -13,6 +13,7 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
+        pcamera = Camera.main;
         text.SetActive(false);
     }
 
