@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool CanMove { get; private set; }
     bool isSprinting;
-   
+    bool LobbyLoopScene;
     bool shouldCrouch => characterController.isGrounded && !inCrouchingAnimation;
 
     [Header("Functional options")]
@@ -74,9 +74,11 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
 
-        portalableObject = GetComponent<PortalableObject>();
-        portalableObject.HasTeleported += PortalableObjectOnHasTeleported;
-
+        if (LobbyLoopScene)
+        {
+            portalableObject = GetComponent<PortalableObject>();
+            portalableObject.HasTeleported += PortalableObjectOnHasTeleported;
+        }
         #region Input Setup
         //Input Setup
         playerInputAction = new PlayerInputAction();
@@ -108,7 +110,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        portalableObject.HasTeleported -= PortalableObjectOnHasTeleported;
+        if (LobbyLoopScene)
+        {
+            portalableObject.HasTeleported -= PortalableObjectOnHasTeleported;
+        }
     }
     void InventoryToggle()
     {
