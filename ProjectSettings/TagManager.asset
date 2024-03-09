@@ -9,6 +9,7 @@ TagManager:
   - Breaker
   - collectables
   - Candle
+  - Sittable
   layers:
   - Default
   - TransparentFX
