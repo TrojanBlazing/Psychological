@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Vinil.unity
+    guid: ce1fe0ea7a5a6d04f9d9cfd9e5302653
+  - enabled: 1
+    path: Assets/Scenes/DreamScene.unity
+    guid: be3d42030ff76fc4f87c1f4d42472aae
   m_configObjects: {}
