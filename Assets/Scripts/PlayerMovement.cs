@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PortalableObject portalableObject;
+    
     PlayerInputAction playerInputAction;
 
     public bool CanMove { get; private set; }
     bool isSprinting;
-    bool LobbyLoopScene;
+    
     bool shouldCrouch => characterController.isGrounded && !inCrouchingAnimation;
 
     [Header("Functional options")]
@@ -74,11 +74,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
 
-        if (LobbyLoopScene)
-        {
-            portalableObject = GetComponent<PortalableObject>();
-            portalableObject.HasTeleported += PortalableObjectOnHasTeleported;
-        }
+        
         #region Input Setup
         //Input Setup
         playerInputAction = new PlayerInputAction();
@@ -101,20 +97,7 @@ public class PlayerMovement : MonoBehaviour
         defaultYPos = playerCam.transform.localPosition.y;
     }
 
-    private void PortalableObjectOnHasTeleported(Portal sender, Portal destination, Vector3 newposition, Quaternion newrotation)
-    {
-        // For character controller to update
-
-        Physics.SyncTransforms();
-    }
-
-    private void OnDestroy()
-    {
-        if (LobbyLoopScene)
-        {
-            portalableObject.HasTeleported -= PortalableObjectOnHasTeleported;
-        }
-    }
+   
     void InventoryToggle()
     {
         if (inventoryToggle == 0)
@@ -164,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 HeadBob();
             }
+            //ApplyMovement();
         }
         }
 

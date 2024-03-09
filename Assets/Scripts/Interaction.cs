@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -21,6 +22,9 @@ public class Interaction : MonoBehaviour
 
     bool isCollectiable;
     bool isBreaker;
+    bool isDoor;
+
+    RaycastHit hit;
     private void Awake()
     {
         inventory = new Inventory();
@@ -30,11 +34,21 @@ public class Interaction : MonoBehaviour
         playerInputAction = new PlayerInputAction();
         playerInputAction.PlayerMovement.Enable();
         playerInputAction.PlayerMovement.Interaction.performed += c => ObjectPickUp();
+        playerInputAction.PlayerMovement.Interaction.performed += c => DoorInteract();
         inventoryUi.SetInventory(inventory);
     }
+
+    private void DoorInteract()
+    {
+       if(isDoor)
+        {
+            hit.transform.gameObject.GetComponent<Door>().PressCheck();
+        }
+    }
+
     private void Update()
     {
-        RaycastHit hit;
+       
         if (Physics.Raycast(pcamera.transform.position, pcamera.transform.forward, out hit, maxDistance))
         {
             worldObj = hit.transform.gameObject;
@@ -58,9 +72,18 @@ public class Interaction : MonoBehaviour
             {
                 isBreaker = false;
             }
+
+            if(hit.transform.tag == "Door")
+            {
+                isDoor = true;
+            }
+            else
+            {
+                isDoor = false;
+            }
         }
     }
-
+ 
     void ObjectPickUp()
     {
         if(isCollectiable && inventory.GetItemList().Count<5)
