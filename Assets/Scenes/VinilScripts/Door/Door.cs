@@ -1,49 +1,50 @@
+using DigitalRuby.RainMaker;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private Transform pcamera;
+     private Camera pcamera;
     [SerializeField] private float maxDistance = 3;
     public GameObject text;
-
+   
     private Animator anim;
-    private bool open = false;
-
+    public bool Open { get; private set; }
+    RaycastHit hit;
+    public bool mainDoorLocked {  get; private set; }
     private void Start()
     {
+        pcamera = Camera.main;
         text.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E)) 
         {
-            PressCheck();
+          PressCheck();
         }
     }
-
-    private void PressCheck()
+    public void PressCheck()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(pcamera.transform.position, pcamera.transform.forward, out hit, maxDistance))
-        {
-            if (hit.transform.tag == "Door")
-            {
                 anim = hit.transform.GetComponentInParent<Animator>();
-                open = !open;
-                anim.SetBool("Open", !open);
-            }
-        }
+                Open = !Open;
+                anim.SetBool("Open", !Open);
+                
     }
 
+    public void MainDoorLocked()
+    {
+        mainDoorLocked = true;
+       
+    }
     private void UpdateTextVisibility()
     {
-        RaycastHit hit;
+        
         if (Physics.Raycast(pcamera.transform.position, pcamera.transform.forward, out hit, maxDistance))
         {
-            if (hit.transform.tag == "Door")
+            if (hit.transform.tag == "Door" || hit.transform.tag =="MainDoor")
             {
                 text.SetActive(true);
                 return;

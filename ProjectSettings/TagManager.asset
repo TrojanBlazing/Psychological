@@ -9,6 +9,7 @@ TagManager:
   - Breaker
   - collectables
   - Candle
+  - MainDoor
   layers:
   - Default
   - TransparentFX
