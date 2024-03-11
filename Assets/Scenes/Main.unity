@@ -12940,7 +12940,7 @@ GameObject:
   - component: {fileID: 523011967}
   - component: {fileID: 523011966}
   m_Layer: 0
-  m_Name: Cube (7)
+  m_Name: Celing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
