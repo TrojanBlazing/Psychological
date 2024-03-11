@@ -40,7 +40,16 @@ public class Interaction : MonoBehaviour
 
     private void DoorInteract()
     {
-       if(isDoor)
+        if(isDoor && hit.transform.gameObject.tag == "MainDoor")
+        {
+          
+            if(hit.transform.gameObject.GetComponent<Door>().mainDoorLocked == false)
+            {
+                
+                hit.transform.gameObject.GetComponent<Door>().PressCheck();
+            }
+        }
+        else if(isDoor)
         {
             hit.transform.gameObject.GetComponent<Door>().PressCheck();
         }
@@ -73,7 +82,7 @@ public class Interaction : MonoBehaviour
                 isBreaker = false;
             }
 
-            if(hit.transform.tag == "Door")
+            if(hit.transform.tag == "Door" || hit.transform.tag == "MainDoor")
             {
                 isDoor = true;
             }

@@ -10,26 +10,41 @@ public class Door : MonoBehaviour
     public GameObject text;
    
     private Animator anim;
-    private bool open = false;
+    public bool Open { get; private set; }
     RaycastHit hit;
+    public bool mainDoorLocked {  get; private set; }
     private void Start()
     {
         pcamera = Camera.main;
         text.SetActive(false);
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E)) 
+        {
+          PressCheck();
+        }
+    }
     public void PressCheck()
     {
                 anim = hit.transform.GetComponentInParent<Animator>();
-                open = !open;
-                anim.SetBool("Open", !open);  
+                Open = !Open;
+                anim.SetBool("Open", !Open);
+                
     }
 
+    public void MainDoorLocked()
+    {
+        mainDoorLocked = true;
+       
+    }
     private void UpdateTextVisibility()
     {
         
         if (Physics.Raycast(pcamera.transform.position, pcamera.transform.forward, out hit, maxDistance))
         {
-            if (hit.transform.tag == "Door")
+            if (hit.transform.tag == "Door" || hit.transform.tag =="MainDoor")
             {
                 text.SetActive(true);
                 return;

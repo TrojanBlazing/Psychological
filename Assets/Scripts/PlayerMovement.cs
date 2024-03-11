@@ -147,19 +147,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 HeadBob();
             }
-            //ApplyMovement();
-        }
-        }
-
-    void FixedUpdate()
-    {
-        if (CanMove)
-        {
             ApplyMovement();
-            
+        }
         }
 
-    }
+    
 
     void HandleZoom(InputAction.CallbackContext context)
     {
