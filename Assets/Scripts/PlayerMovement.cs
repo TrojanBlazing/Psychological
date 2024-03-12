@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -70,10 +71,13 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] GameObject InventoryUI;
     int inventoryToggle = 0;
-    
+    //Point light on player
+    [SerializeField] Light playerPointLight;
+    [SerializeField] float crouchPlayerLightIntensity;
+    float originalPlayerLightIntensity;
     private void Start()
     {
-
+        originalPlayerLightIntensity = playerPointLight.intensity;
         
         #region Input Setup
         //Input Setup
@@ -210,6 +214,7 @@ public class PlayerMovement : MonoBehaviour
             if (shouldCrouch)
             {
                 StartCoroutine(StartCrouch());
+                
             }
         }
         }
@@ -226,6 +231,7 @@ public class PlayerMovement : MonoBehaviour
             inCrouchingAnimation = true;
 
             float timeElapsed = 0f;
+             
             float targetHeight = isCrouching ? standHeight : crouchHeight;
             float currentHeight = characterController.height;
             Vector3 targetCentre = isCrouching ? standingCentre : crouchCentre;
@@ -241,10 +247,10 @@ public class PlayerMovement : MonoBehaviour
 
             characterController.height = targetHeight;
             characterController.center = targetCentre;
-
-            isCrouching = !isCrouching;
-
-            inCrouchingAnimation = false;
+        playerPointLight.intensity = isCrouching ? originalPlayerLightIntensity : crouchPlayerLightIntensity;
+        isCrouching = !isCrouching;
+       
+        inCrouchingAnimation = false;
         }
 
     IEnumerator ToggleZoom(bool isEnter)
