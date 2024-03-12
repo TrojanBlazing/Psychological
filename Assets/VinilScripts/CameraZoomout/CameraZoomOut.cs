@@ -6,7 +6,9 @@ public class CamerasZoomOut : MonoBehaviour
     public float zoomSpeed = 2.0f;        
     public float minDistance = 2.0f;      
     public float maxDistance = 10.0f;     
-    public float stopDistance = 5.0f;    
+    public float stopDistance = 5.0f;  
+    
+
 
     private Vector3 initialPosition;
     private Camera cam;

@@ -10,6 +10,8 @@ TagManager:
   - collectables
   - Candle
   - MainDoor
+  - Sittable
+  - Cam
   layers:
   - Default
   - TransparentFX
