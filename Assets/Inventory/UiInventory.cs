@@ -3,9 +3,10 @@ using CodeMonkey.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 public class UiInventory : MonoBehaviour
-{
-    Inventory inventory;
-   [SerializeField] Transform itemContainer, slotTemplate;
+{  
+
+     Inventory inventory;
+     [SerializeField] Transform itemContainer, slotTemplate;
   
     [SerializeField] WorldItemSpawnner spawnner;
     public void SetInventory(Inventory inventory)
@@ -46,7 +47,7 @@ public class UiInventory : MonoBehaviour
             };
 
             slotRectTransform.anchoredPosition = new Vector2(x* slotSize, y*slotSize);
-            Image image = slotRectTransform.Find("MainImage").GetComponent<Image>();
+             Image image = slotRectTransform.Find("MainImage").GetComponent<Image>();
              image.sprite = item.GetSprite();
             x++;
             if(x==5)
@@ -55,4 +56,7 @@ public class UiInventory : MonoBehaviour
             }
         }
     }
+
+  
 }
+

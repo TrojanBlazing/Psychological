@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -78,7 +79,9 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         originalPlayerLightIntensity = playerPointLight.intensity;
-        
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         #region Input Setup
         //Input Setup
         playerInputAction = new PlayerInputAction();
@@ -90,35 +93,48 @@ public class PlayerMovement : MonoBehaviour
         playerInputAction.PlayerMovement.Zoom.started += HandleZoom;
         playerInputAction.PlayerMovement.Zoom.canceled += Zoom_canceled;
         playerInputAction.PlayerMovement.Inventory.performed += c => InventoryToggle();
-
+        playerInputAction.Inventory.Inventory.performed += c => InventoryToggle();
+       
         #endregion
         playerCam = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-       Cursor.visible = false;
+
+        
+
         CanMove = true;
         defaultFOV = playerCam.fieldOfView;
         defaultYPos = playerCam.transform.localPosition.y;
     }
 
    
+
     void InventoryToggle()
     {
+        //inventory off
         if (inventoryToggle == 0)
         {
+            playerInputAction.PlayerMovement.Enable();
+            playerInputAction.Inventory.Disable();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             InventoryUI.SetActive(false);
             inventoryToggle = 1;
         }
+        //inventory on
         else
         {
             InventoryUI.SetActive(true);
-           
             inventoryToggle = 0;
+            playerInputAction.PlayerMovement.Disable();
+            playerInputAction.Inventory.Enable();
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
     }
 
     private void Zoom_canceled(InputAction.CallbackContext obj)
     {
+        
         if (ZoomCoroutine != null)
         {
             StopCoroutine(ZoomCoroutine);

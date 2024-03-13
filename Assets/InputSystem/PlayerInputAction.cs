@@ -70,7 +70,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Look"",
@@ -235,22 +235,22 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2df70650-da38-4941-999d-91d91deced93"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""0472512b-4f33-40fd-96ef-7a09f693b24f"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0472512b-4f33-40fd-96ef-7a09f693b24f"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""id"": ""790618e4-4f09-406e-85b7-650b3ea2faf0"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": """",
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -300,6 +300,134 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Inventory"",
+            ""id"": ""e4a2b8e0-bfc8-42da-846c-943aa9201701"",
+            ""actions"": [
+                {
+                    ""name"": ""Key1"",
+                    ""type"": ""Button"",
+                    ""id"": ""d1fdc453-14d2-4498-a98d-a5e970659615"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key2"",
+                    ""type"": ""Button"",
+                    ""id"": ""c21c62a5-c45e-4a18-b509-6f2b87839c33"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key3"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ab0f1f5-f1c2-4252-9cdf-4826255428c1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key4"",
+                    ""type"": ""Button"",
+                    ""id"": ""fbf1a606-6dd5-49d5-8c83-135e96fd242d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key5"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e9d102f-1713-4e48-848d-dbe2b49ac695"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6e5f2e2-d9de-457b-bcf8-1e7011a5646e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2d2f55bf-7c18-4999-81ec-75fe7bd5abf9"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Key1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55b63f1b-9843-419f-99e7-0bcb171fa96f"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Key2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""910c3223-d7b4-4809-9f56-551ac05cff84"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Key3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b849f445-7745-46ec-a847-0822417e9578"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Key4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""894230ce-80f2-463a-96ee-6f71626a07b0"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Key5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c3805bb-ffda-4fba-a60a-8dc9197b4fe2"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -337,6 +465,14 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_PlayerMovement_Look = m_PlayerMovement.FindAction("Look", throwIfNotFound: true);
         m_PlayerMovement_Inventory = m_PlayerMovement.FindAction("Inventory", throwIfNotFound: true);
         m_PlayerMovement_Interaction = m_PlayerMovement.FindAction("Interaction", throwIfNotFound: true);
+        // Inventory
+        m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
+        m_Inventory_Key1 = m_Inventory.FindAction("Key1", throwIfNotFound: true);
+        m_Inventory_Key2 = m_Inventory.FindAction("Key2", throwIfNotFound: true);
+        m_Inventory_Key3 = m_Inventory.FindAction("Key3", throwIfNotFound: true);
+        m_Inventory_Key4 = m_Inventory.FindAction("Key4", throwIfNotFound: true);
+        m_Inventory_Key5 = m_Inventory.FindAction("Key5", throwIfNotFound: true);
+        m_Inventory_Inventory = m_Inventory.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -496,6 +632,92 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         }
     }
     public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+
+    // Inventory
+    private readonly InputActionMap m_Inventory;
+    private List<IInventoryActions> m_InventoryActionsCallbackInterfaces = new List<IInventoryActions>();
+    private readonly InputAction m_Inventory_Key1;
+    private readonly InputAction m_Inventory_Key2;
+    private readonly InputAction m_Inventory_Key3;
+    private readonly InputAction m_Inventory_Key4;
+    private readonly InputAction m_Inventory_Key5;
+    private readonly InputAction m_Inventory_Inventory;
+    public struct InventoryActions
+    {
+        private @PlayerInputAction m_Wrapper;
+        public InventoryActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Key1 => m_Wrapper.m_Inventory_Key1;
+        public InputAction @Key2 => m_Wrapper.m_Inventory_Key2;
+        public InputAction @Key3 => m_Wrapper.m_Inventory_Key3;
+        public InputAction @Key4 => m_Wrapper.m_Inventory_Key4;
+        public InputAction @Key5 => m_Wrapper.m_Inventory_Key5;
+        public InputAction @Inventory => m_Wrapper.m_Inventory_Inventory;
+        public InputActionMap Get() { return m_Wrapper.m_Inventory; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
+        public void AddCallbacks(IInventoryActions instance)
+        {
+            if (instance == null || m_Wrapper.m_InventoryActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InventoryActionsCallbackInterfaces.Add(instance);
+            @Key1.started += instance.OnKey1;
+            @Key1.performed += instance.OnKey1;
+            @Key1.canceled += instance.OnKey1;
+            @Key2.started += instance.OnKey2;
+            @Key2.performed += instance.OnKey2;
+            @Key2.canceled += instance.OnKey2;
+            @Key3.started += instance.OnKey3;
+            @Key3.performed += instance.OnKey3;
+            @Key3.canceled += instance.OnKey3;
+            @Key4.started += instance.OnKey4;
+            @Key4.performed += instance.OnKey4;
+            @Key4.canceled += instance.OnKey4;
+            @Key5.started += instance.OnKey5;
+            @Key5.performed += instance.OnKey5;
+            @Key5.canceled += instance.OnKey5;
+            @Inventory.started += instance.OnInventory;
+            @Inventory.performed += instance.OnInventory;
+            @Inventory.canceled += instance.OnInventory;
+        }
+
+        private void UnregisterCallbacks(IInventoryActions instance)
+        {
+            @Key1.started -= instance.OnKey1;
+            @Key1.performed -= instance.OnKey1;
+            @Key1.canceled -= instance.OnKey1;
+            @Key2.started -= instance.OnKey2;
+            @Key2.performed -= instance.OnKey2;
+            @Key2.canceled -= instance.OnKey2;
+            @Key3.started -= instance.OnKey3;
+            @Key3.performed -= instance.OnKey3;
+            @Key3.canceled -= instance.OnKey3;
+            @Key4.started -= instance.OnKey4;
+            @Key4.performed -= instance.OnKey4;
+            @Key4.canceled -= instance.OnKey4;
+            @Key5.started -= instance.OnKey5;
+            @Key5.performed -= instance.OnKey5;
+            @Key5.canceled -= instance.OnKey5;
+            @Inventory.started -= instance.OnInventory;
+            @Inventory.performed -= instance.OnInventory;
+            @Inventory.canceled -= instance.OnInventory;
+        }
+
+        public void RemoveCallbacks(IInventoryActions instance)
+        {
+            if (m_Wrapper.m_InventoryActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IInventoryActions instance)
+        {
+            foreach (var item in m_Wrapper.m_InventoryActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_InventoryActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public InventoryActions @Inventory => new InventoryActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -524,5 +746,14 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+    }
+    public interface IInventoryActions
+    {
+        void OnKey1(InputAction.CallbackContext context);
+        void OnKey2(InputAction.CallbackContext context);
+        void OnKey3(InputAction.CallbackContext context);
+        void OnKey4(InputAction.CallbackContext context);
+        void OnKey5(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }

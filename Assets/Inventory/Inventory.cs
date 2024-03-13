@@ -20,7 +20,7 @@ public class Inventory
     {
         itemList.Add(item);
         OnItemListChange?.Invoke(this,EventArgs.Empty);
-        //Debug.Log(item.Type);
+      
     }
     public List<Item> GetItemList()
     {
