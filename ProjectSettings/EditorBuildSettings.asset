@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DreamScene.unity
     guid: be3d42030ff76fc4f87c1f4d42472aae
+  - enabled: 1
+    path: Assets/Scenes/Segment3Continuation.unity
+    guid: 22f58f713862d5240a0db53ceca1f4d0
   m_configObjects: {}

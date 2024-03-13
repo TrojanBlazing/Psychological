@@ -15595,8 +15595,8 @@ MonoBehaviour:
   gravity: 0
   lookSpeedX: 0.0009
   lookSpeedY: 0.0009
-  upperLookLimit: 60
-  lowerLookLimit: 60
+  upperLookLimit: 55.6
+  lowerLookLimit: 51.7
   crouchHeight: 0
   standHeight: 0
   timeToCrouch: 0
