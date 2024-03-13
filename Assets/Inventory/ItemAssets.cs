@@ -13,6 +13,6 @@ public class ItemAssets : MonoBehaviour
 
     public Sprite FlashLight;
     public Sprite Battery;
-    public Sprite Obj1;
+    public Sprite Lighter;
     public Sprite Obj2;
 }

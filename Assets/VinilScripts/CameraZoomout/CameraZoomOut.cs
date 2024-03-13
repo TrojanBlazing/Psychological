@@ -5,21 +5,19 @@ using System.Collections;
 
 public class CamerasZoomOut : MonoBehaviour
 {
-    public Transform cubeToZoomOutFrom;
-    public float zoomSpeed = 2.0f;
-    public float minDistance = 2.0f;
-    public float maxDistance = 10.0f;
-    public float stopDistance = 5.0f;
-   // public string nextSceneName="DreamScene"; 
-
+    [SerializeField] Transform cubeToZoomOutFrom;
+    [SerializeField] float zoomSpeed = 2.0f;
+    [SerializeField] float minDistance = 2.0f;
+    [SerializeField] float maxDistance = 10.0f;
+    [SerializeField] float stopDistance = 5.0f;
+  
     private Vector3 initialPosition;
-    private Camera cam;
-    private bool hasZoomedOut = false;
+   
 
     void Start()
     {
-        cam = GetComponent<Camera>();
-        initialPosition = transform.position;
+       
+        //initialPosition = transform.position;
     }
 
     void Update()
@@ -40,8 +38,8 @@ public class CamerasZoomOut : MonoBehaviour
 
     IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(4.7f); 
-        SceneManager.LoadScene(4); 
-        Destroy(gameObject);
+        yield return new WaitForSeconds(5f); 
+        SceneManager.LoadScene(3); 
+        
     }
 }

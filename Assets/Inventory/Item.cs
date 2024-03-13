@@ -8,7 +8,7 @@ public class Item
     {
         Flashlight,
         Battery,
-        Object1,
+        Lighter,
         Object2
     }
 
@@ -24,13 +24,11 @@ public class Item
                 return ItemAssets.Instance.FlashLight;
             case ItemType.Battery:
                 return ItemAssets.Instance.Battery;
-            case ItemType.Object1:
-                return ItemAssets.Instance.Obj1;
+            case ItemType.Lighter:
+                return ItemAssets.Instance.Lighter;
             case ItemType.Object2:
                 return ItemAssets.Instance.Obj2;
             
-
-
         }
     }
 }

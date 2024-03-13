@@ -78,8 +78,10 @@ public class PlayerMovement : MonoBehaviour
     float originalPlayerLightIntensity;
     private void Start()
     {
-        originalPlayerLightIntensity = playerPointLight.intensity;
-
+        if (playerPointLight != null)
+        {
+            originalPlayerLightIntensity = playerPointLight.intensity;
+        }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         #region Input Setup
@@ -263,7 +265,10 @@ public class PlayerMovement : MonoBehaviour
 
             characterController.height = targetHeight;
             characterController.center = targetCentre;
-        playerPointLight.intensity = isCrouching ? originalPlayerLightIntensity : crouchPlayerLightIntensity;
+        if (playerPointLight != null)
+        {
+            playerPointLight.intensity = isCrouching ? originalPlayerLightIntensity : crouchPlayerLightIntensity;
+        }
         isCrouching = !isCrouching;
        
         inCrouchingAnimation = false;

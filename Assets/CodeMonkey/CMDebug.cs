@@ -17,7 +17,7 @@ using CodeMonkey.Utils;
 namespace CodeMonkey {
 
     /*
-     * Debug Class with various helper functions to quickly create buttons, text, etc
+     * Debug Class with various helper functions to quickly create buttons, interactText, etc
      * */
     public static class CMDebug {
 
@@ -40,7 +40,7 @@ namespace CodeMonkey {
             UtilsClass.CreateWorldText(text, parent, localPosition, fontSize, color, textAnchor, textAlignment, sortingOrder);
         }
         
-        // World text pop up at mouse position
+        // World interactText pop up at mouse position
         public static void TextPopupMouse(string text, Vector3? offset = null) {
             if (offset == null) {
                 offset = Vector3.one;
@@ -48,7 +48,7 @@ namespace CodeMonkey {
             UtilsClass.CreateWorldTextPopup(text, UtilsClass.GetMouseWorldPosition() + (Vector3)offset);
         }
 
-        // World text pop up at mouse position
+        // World interactText pop up at mouse position
         public static void TextPopupMouse(object obj, Vector3? offset = null) {
             TextPopupMouse(obj.ToString(), offset);
         }

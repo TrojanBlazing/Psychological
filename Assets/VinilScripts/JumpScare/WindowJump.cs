@@ -3,10 +3,10 @@ using System.Collections;
 
 public class WindowJump : MonoBehaviour
 {
-    public GameObject ghostObject;
-    public Transform startPoint;
-    public Transform endPoint;
-    public float duration = 1f;
+    [SerializeField] GameObject ghostObject;
+    [SerializeField] Transform startPoint;
+    [SerializeField] Transform endPoint;
+    [SerializeField] float duration = 1f;
 
     private void Start()
     {

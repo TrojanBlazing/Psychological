@@ -6,14 +6,14 @@ using UnityEngine;
 public class RainAudioChanger : MonoBehaviour
 {
     [SerializeField] BaseRainScript baseRainScript;
-    [SerializeField] Door mainDoor;
+    [SerializeField] UpdatedDoor MainDoor;
     private void OnTriggerExit(Collider other)
     {
        
         if (other.gameObject.CompareTag("Player"))
         {
             baseRainScript.RainIntensity = 0.2f;
-           
+           LockMainDoor();
         }
     }
 
@@ -24,8 +24,10 @@ public class RainAudioChanger : MonoBehaviour
             baseRainScript.RainIntensity = 0.9f;
         }
     }
-    public void LockMainDoor()
+     void LockMainDoor()
     {
-        mainDoor.MainDoorLocked();
+        
+       MainDoor.LockDoor();
+       
     }
 }

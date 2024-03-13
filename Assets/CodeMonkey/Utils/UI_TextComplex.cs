@@ -16,7 +16,7 @@ using UnityEngine.UI;
 namespace CodeMonkey.Utils {
     
     /*
-     * Displays text with icons in between the text
+     * Displays interactText with icons in between the interactText
      * */
     public class UI_TextComplex {
         

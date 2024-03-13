@@ -9,7 +9,7 @@ public class Interaction : MonoBehaviour
 {
     [SerializeField] private Transform pcamera;
     [SerializeField] private float maxDistance = 6;
-    [SerializeField] GameObject text;
+    [SerializeField] GameObject interactText;
 
     PlayerInputAction playerInputAction;
     GameObject worldObj;
@@ -40,18 +40,9 @@ public class Interaction : MonoBehaviour
 
     private void DoorInteract()
     {
-        if(isDoor && hit.transform.gameObject.tag == "MainDoor")
+        if(isDoor)
         {
-          
-            if(hit.transform.gameObject.GetComponent<Door>().mainDoorLocked == false)
-            {
-                
-                hit.transform.gameObject.GetComponent<Door>().PressCheck();
-            }
-        }
-        else if(isDoor)
-        {
-            hit.transform.gameObject.GetComponent<Door>().PressCheck();
+            hit.transform.gameObject.GetComponent<UpdatedDoor>().DoorInteraction();
         }
     }
 
@@ -64,7 +55,7 @@ public class Interaction : MonoBehaviour
 
             if (hit.transform.tag == "collectables")
             {
-               text.SetActive(true);
+               interactText.SetActive(true);
                 
                isCollectiable = true;
             }
@@ -74,7 +65,7 @@ public class Interaction : MonoBehaviour
             }
             if(hit.transform.tag == "Breaker")
             {
-                text.SetActive(true);
+                interactText.SetActive(true);
                 isBreaker = true;
             }
             else
@@ -84,6 +75,7 @@ public class Interaction : MonoBehaviour
 
             if(hit.transform.tag == "Door" || hit.transform.tag == "MainDoor")
             {
+                interactText.SetActive(true);
                 isDoor = true;
             }
             else
