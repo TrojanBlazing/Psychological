@@ -12,6 +12,7 @@ TagManager:
   - MainDoor
   - Sittable
   - Cam
+  - Ghost
   layers:
   - Default
   - TransparentFX

@@ -1,60 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+using System.Collections;
+
 
 public class WindowJump : MonoBehaviour
 {
+   
+    public GameObject ghostObject;
+    public Transform startPoint;
+    public Transform endPoint;
+    public float duration = 1f;
+
+    bool hasTriggered = false;
 
 
-    public Transform targetPosition;   
-    public float movementSpeed = 10f;  
-
-    private bool triggered = false;    
-
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (!triggered && other.CompareTag("Player"))
+        if (!hasTriggered && other.CompareTag("Player"))
         {
-            triggered = true;
-            StartJumpScare();
+          
+            StartCoroutine(MoveGhost());
         }
     }
 
-    void StartJumpScare()
+    IEnumerator MoveGhost()
     {
-        if (targetPosition == null)
-        {
-            Debug.LogWarning("Target position i");
-            return;
-        }
+        hasTriggered = true;
 
-       
-        float distance = Vector3.Distance(transform.position, targetPosition.position);
-        float timeToReach = distance / movementSpeed;
+        ghostObject.SetActive(true);
+        ghostObject.transform.position = startPoint.position;
 
-       
-        StartCoroutine(MoveToTargetPosition(timeToReach));
-    }
-
-    IEnumerator MoveToTargetPosition(float timeToReach)
-    {
         float elapsedTime = 0f;
-        Vector3 startingPos = transform.position;
-        Vector3 targetPos = targetPosition.position;
 
-        while (elapsedTime < timeToReach)
+        while (elapsedTime < duration)
         {
-            transform.position = Vector3.Lerp(startingPos, targetPos, (elapsedTime / timeToReach));
+            ghostObject.transform.position = Vector3.Lerp(startPoint.position, endPoint.position, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-       
-        transform.position = targetPos;
+
+        ghostObject.transform.position = endPoint.position;
 
 
-        
-        gameObject.SetActive(false);
+        ghostObject.SetActive(false);
+
+        hasTriggered = false;
     }
 }
+
 
