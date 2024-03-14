@@ -21,6 +21,7 @@ public class UiInventory : MonoBehaviour
         RefreshInventory();
     }
 
+    
     public void RefreshInventory()
     {
 
@@ -39,9 +40,10 @@ public class UiInventory : MonoBehaviour
            
             RectTransform slotRectTransform = Instantiate(slotTemplate, itemContainer).GetComponent<RectTransform>();
             slotRectTransform.gameObject.SetActive(true);
+            
             slotRectTransform.GetComponent<Button_UI>().MouseRightClickFunc = () =>
             {
-                //Drop item
+               
                 inventory.RemoveItem(item);
                 spawnner.DropItem(item);
             };

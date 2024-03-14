@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 
 public class Interaction : MonoBehaviour
 {
-    [SerializeField] private Transform pcamera;
-    [SerializeField] private float maxDistance = 6;
+    [SerializeField] Transform pcamera;
+    [SerializeField] float maxDistance = 6;
     [SerializeField] GameObject interactText;
     [SerializeField] GameObject LightOn;
     PlayerInputAction playerInputAction;

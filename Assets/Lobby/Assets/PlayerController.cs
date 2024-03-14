@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     private void PortalableObjectOnHasTeleported(Portal sender, Portal destination, Vector3 newposition, Quaternion newrotation)
     {
         // For character controller to update
-        
         Physics.SyncTransforms();
     }
 

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Sitting : MonoBehaviour
 {
-    public GameObject playerStand;
-    public GameObject playerSit;
-    public GameObject text;
-    public GameObject standText;
+    [SerializeField] GameObject playerStand;
+    [SerializeField] GameObject playerSit;
+    [SerializeField] GameObject text;
+    [SerializeField] GameObject standText;
 
-    public bool IsSitting;
-    public bool IsInteract;
+     bool IsSitting;
+    bool IsInteract;
 
     void Update()
     {
