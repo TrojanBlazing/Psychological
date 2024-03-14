@@ -20,9 +20,9 @@ public class InterDisable : MonoBehaviour
 
     [SerializeField]
     private GameObject text;
-    public string dialouge = "Yea hes asleep";
+    [SerializeField] private string dialouge = "Yea hes asleep";
 
-    public float timer = 3f;
+    [SerializeField] private float timer = 3f;
 
     private void Start()
     {

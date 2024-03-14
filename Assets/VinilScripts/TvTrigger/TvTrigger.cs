@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TvTrigger : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField] private GameObject player;
    // public AudioSource am;
 
-    public GameObject trigger;
+    [SerializeField] private GameObject trigger;
     void Start()
     {
         player.SetActive(false);

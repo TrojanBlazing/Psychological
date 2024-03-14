@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {    
-    public GameObject pickupText;
-    public GameObject LightOn;
+   [SerializeField] private GameObject pickupText;
+ [SerializeField] private GameObject LightOn;
     void Start()
     {
         LightOn.SetActive(false);

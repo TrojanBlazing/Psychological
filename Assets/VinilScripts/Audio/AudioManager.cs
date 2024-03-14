@@ -7,8 +7,10 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager am;
 
-    public Sound[] sfx;
-    public AudioSource sfxsource;
+    [SerializeField]
+    private Sound[] sfx;
+    [SerializeField]
+    private AudioSource sfxsource;
 
 
     private void Awake()

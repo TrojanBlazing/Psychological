@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class JumpScareWindow : MonoBehaviour
 {
-     public Animator ghostAnimator;
-   
-    public GameObject gm;
+     [SerializeField] private Animator ghostAnimator;
+
+    [SerializeField] private GameObject gm;
 
     private bool hasPlayed = false;
 
