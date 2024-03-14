@@ -10,7 +10,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] private Transform pcamera;
     [SerializeField] private float maxDistance = 6;
     [SerializeField] GameObject interactText;
-
+    [SerializeField] GameObject LightOn;
     PlayerInputAction playerInputAction;
     GameObject worldObj;
     Item.ItemType worldItemType;
@@ -23,6 +23,7 @@ public class Interaction : MonoBehaviour
     bool isCollectiable;
     bool isBreaker;
     bool isDoor;
+    
 
     RaycastHit hit;
     private void Awake()
@@ -91,10 +92,14 @@ public class Interaction : MonoBehaviour
         {
             
             worldItemType = worldObj.GetComponent<WorldItem>().worldItem;
-            //Debug.Log(worldItemType);
+            if (worldItemType == Item.ItemType.Lighter)
+            {
+                LightOn.SetActive(true);
+            }
              inventory.AddItem(new Item { Type = worldItemType, amount = 1 });
-          
+             
             Destroy(worldObj);
+           
         }
 
         if (isBreaker)

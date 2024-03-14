@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PickUp : MonoBehaviour
-{
-    
+{    
     public GameObject pickupText;
     public GameObject LightOn;
     void Start()
