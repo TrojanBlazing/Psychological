@@ -64,7 +64,14 @@ public class Interaction : MonoBehaviour
                 isDoor = false;
             }
         }
-
+        if(inventoryManager.inventory.Count > 0)
+        {
+            gameObject.GetComponent<PlayerMovement>().canHeadBob = false;
+        }
+        else
+        {
+            gameObject.GetComponent<PlayerMovement>().canHeadBob = true;
+        }
 
     }
     private void OnDrawGizmosSelected()

@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool canSprint = true;
     [SerializeField] bool canJump = true;
     [SerializeField] bool canCrouch = true;
-    [SerializeField] bool canHeadBob = true;
+    [SerializeField] internal bool canHeadBob = true;
     [SerializeField] bool canZoom = true;
 
     [Header("Jump Parameters")]

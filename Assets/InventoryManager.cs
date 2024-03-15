@@ -61,6 +61,7 @@ public class InventoryManager : MonoBehaviour
                     }
                     else
                     {
+                        newGameObject.GetComponent<Transform>().localScale = new Vector3(0.5f,0.5f,0.5f);
                         newGameObject.GetComponent<PickUp>().lighterInHand = true;
                     }
                 }
