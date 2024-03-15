@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     
     PlayerInputAction playerInputAction;
-
+    private PortalableObject portalableObject;
     public bool CanMove { get; private set; }
     bool isSprinting;
     
@@ -82,6 +82,11 @@ public class PlayerMovement : MonoBehaviour
         {
             originalPlayerLightIntensity = playerPointLight.intensity;
         }
+        portalableObject = GetComponent<PortalableObject>();
+        if (portalableObject != null)
+        {
+            portalableObject.HasTeleported += PortalableObjectOnHasTeleported;
+        }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         #region Input Setup
@@ -94,8 +99,8 @@ public class PlayerMovement : MonoBehaviour
         playerInputAction.PlayerMovement.Crouch.performed += HandleCrouch;
         playerInputAction.PlayerMovement.Zoom.started += HandleZoom;
         playerInputAction.PlayerMovement.Zoom.canceled += Zoom_canceled;
-        playerInputAction.PlayerMovement.Inventory.performed += c => InventoryToggle();
-        playerInputAction.Inventory.Inventory.performed += c => InventoryToggle();
+        //playerInputAction.PlayerMovement.Inventory.performed += c => InventoryToggle();
+      //  playerInputAction.Inventory.Inventory.performed += c => InventoryToggle();
        
         #endregion
         playerCam = GetComponentInChildren<Camera>();
@@ -108,8 +113,19 @@ public class PlayerMovement : MonoBehaviour
         defaultYPos = playerCam.transform.localPosition.y;
     }
 
-   
+    private void PortalableObjectOnHasTeleported(Portal sender, Portal destination, Vector3 newposition, Quaternion newrotation)
+    {
+        // For character controller to update
+        Physics.SyncTransforms();
+    }
 
+    private void OnDestroy()
+    {
+        if (portalableObject != null)
+        {
+            portalableObject.HasTeleported -= PortalableObjectOnHasTeleported;
+        }
+    }
     void InventoryToggle()
     {
         //inventory off

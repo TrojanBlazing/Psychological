@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using static UnityEngine.UI.Image;
 
 public class Interaction : MonoBehaviour
 {
@@ -11,60 +11,40 @@ public class Interaction : MonoBehaviour
     [SerializeField] float maxDistance = 6;
     [SerializeField] GameObject interactText;
     [SerializeField] GameObject LightOn;
-    PlayerInputAction playerInputAction;
-    GameObject worldObj;
-    Item.ItemType worldItemType;
-
-    //Inventory
-    Inventory inventory;
-    [SerializeField] UiInventory inventoryUi;
+    [SerializeField] InventoryManager inventoryManager; // Reference to the InventoryManager script
     [SerializeField] Breaker breaker;
+    [SerializeField] float delayTime;
+    PlayerInputAction playerInputAction;
 
     bool isCollectiable;
     bool isBreaker;
     bool isDoor;
-    
-
     RaycastHit hit;
-    private void Awake()
-    {
-        inventory = new Inventory();
-    }
+
     void Start()
     {
         playerInputAction = new PlayerInputAction();
         playerInputAction.PlayerMovement.Enable();
         playerInputAction.PlayerMovement.Interaction.performed += c => ObjectPickUp();
-        playerInputAction.PlayerMovement.Interaction.performed += c => DoorInteract();
-        inventoryUi.SetInventory(inventory);
+      
     }
-
-    private void DoorInteract()
-    {
-        if(isDoor)
-        {
-            hit.transform.gameObject.GetComponent<UpdatedDoor>().DoorInteraction();
-        }
-    }
+  
 
     private void Update()
     {
-       
-        if (Physics.Raycast(pcamera.transform.position, pcamera.transform.forward, out hit, maxDistance))
-        {
-            worldObj = hit.transform.gameObject;
 
-            if (hit.transform.tag == "collectables")
+        if (Physics.Raycast(pcamera.transform.position, pcamera.transform.forward, out hit, maxDistance))
+        {  
+            if (hit.transform.CompareTag("collectables"))
             {
-               interactText.SetActive(true);
-                
-               isCollectiable = true;
+                interactText.SetActive(true);
+                isCollectiable = true;
             }
             else
             {
-                isCollectiable= false;
+                isCollectiable = false;
             }
-            if(hit.transform.tag == "Breaker")
+            if (hit.transform.CompareTag("Breaker"))
             {
                 interactText.SetActive(true);
                 isBreaker = true;
@@ -74,7 +54,7 @@ public class Interaction : MonoBehaviour
                 isBreaker = false;
             }
 
-            if(hit.transform.tag == "Door" || hit.transform.tag == "MainDoor")
+            if (hit.transform.CompareTag("Door") || hit.transform.CompareTag("MainDoor"))
             {
                 interactText.SetActive(true);
                 isDoor = true;
@@ -84,28 +64,34 @@ public class Interaction : MonoBehaviour
                 isDoor = false;
             }
         }
+
+
     }
- 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(pcamera.transform.position, pcamera.transform.forward * maxDistance);
+    }
     void ObjectPickUp()
     {
-        if(isCollectiable && inventory.GetItemList().Count<5)
+        if (isCollectiable && inventoryManager != null)
         {
-            
-            worldItemType = worldObj.GetComponent<WorldItem>().worldItem;
-            if (worldItemType == Item.ItemType.Lighter)
+            Item item = hit.transform.GetComponent<Item>(); // Assuming your collectible object has the Item script attached
+            if (item != null)
             {
-                LightOn.SetActive(true);
+                inventoryManager.AddItem(item);
+                Destroy(hit.transform.gameObject);
             }
-             inventory.AddItem(new Item { Type = worldItemType, amount = 1 });
-             
-            Destroy(worldObj);
-           
         }
 
         if (isBreaker)
         {
             breaker.ToggleLights();
         }
+        if (isDoor)
+        {
+            hit.transform.gameObject.GetComponent<UpdatedDoor>().DoorInteraction();
+        }
     }
-
+   
 }

@@ -7,7 +7,7 @@ public class UpdatedDoor : MonoBehaviour
 {
 
 
-    [SerializeField] float interactDistance = 3f; 
+   // [SerializeField] float interactDistance = 3f; 
     [SerializeField] float openAngle = 90f;  
     [SerializeField] float openSpeed = 2f;   
     
