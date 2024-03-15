@@ -8,7 +8,8 @@ public class InventoryManager : MonoBehaviour
     public List<Item> inventory = new List<Item>(); // List to store collected items
     public int currentItemIndex = 0; // Index of the currently selected worldItem in inventory
     public Transform handPosition; // Position where the worldItem will be visible in the player's hand
-    [SerializeField] Item[] itemPrefabs;
+    [SerializeField] GameObject[] itemPrefabs;
+    [SerializeField] Vector3 objectScaleWhenInInventory;
     void Update()
     {
         // Scroll through the inventory using the mouse scroll wheel
@@ -44,11 +45,13 @@ public class InventoryManager : MonoBehaviour
         // Instantiate the selected worldItem at the hand position
         if (inventory.Count > 0)
         {
-            foreach (Item i in itemPrefabs)
+            foreach (GameObject i in itemPrefabs)
             {
-                if(i.itemType == inventory[currentItemIndex].itemType)
+                if(i.GetComponent<Item>().itemType == inventory[currentItemIndex].itemType)
                 {
-                    Instantiate(itemPrefabs[currentItemIndex], handPosition.position, Quaternion.identity, handPosition);
+                   GameObject newGameObject = Instantiate(itemPrefabs[currentItemIndex], handPosition.position, Quaternion.identity, handPosition);
+                    newGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    newGameObject.GetComponent<Transform>().localScale = objectScaleWhenInInventory;
                 }
 
             }
@@ -59,7 +62,8 @@ public class InventoryManager : MonoBehaviour
     void DropItem()
     {
         // Instantiate the currently held worldItem in the world and remove it from inventory
-        Instantiate(inventory[currentItemIndex].gameObject, handPosition.position, Quaternion.identity);
+         GameObject newGameObject =  Instantiate(inventory[currentItemIndex].gameObject, handPosition.position, Quaternion.identity);
+       // newGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         inventory.RemoveAt(currentItemIndex);
 
         // Update current index if it exceeds inventory count
@@ -75,11 +79,11 @@ public class InventoryManager : MonoBehaviour
     {
         if (worldItem.isCollectible && inventory.Count < 5)
         {
-            foreach (Item i in itemPrefabs)
+            foreach (GameObject i in itemPrefabs)
             {
-                if(worldItem.itemType == i.itemType)
+                if(worldItem.itemType == i.GetComponent<Item>().itemType)
                 {
-                    inventory.Add(i);
+                    inventory.Add(i.GetComponent<Item>());
                     
                 }
             }
