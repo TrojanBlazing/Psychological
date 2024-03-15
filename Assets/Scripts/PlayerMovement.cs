@@ -99,8 +99,7 @@ public class PlayerMovement : MonoBehaviour
         playerInputAction.PlayerMovement.Crouch.performed += HandleCrouch;
         playerInputAction.PlayerMovement.Zoom.started += HandleZoom;
         playerInputAction.PlayerMovement.Zoom.canceled += Zoom_canceled;
-        //playerInputAction.PlayerMovement.Inventory.performed += c => InventoryToggle();
-      //  playerInputAction.Inventory.Inventory.performed += c => InventoryToggle();
+        
        
         #endregion
         playerCam = GetComponentInChildren<Camera>();
@@ -113,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
         defaultYPos = playerCam.transform.localPosition.y;
     }
 
+    //Don't touch this. It works so let it work.
     private void PortalableObjectOnHasTeleported(Portal sender, Portal destination, Vector3 newposition, Quaternion newrotation)
     {
         // For character controller to update

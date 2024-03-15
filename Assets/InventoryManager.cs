@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
+// Kindly do not touch this script without taking permission from Lord Paradise.
+// Normies who disobey will be executed.
 public class InventoryManager : MonoBehaviour
 {
-    public List<Item> inventory = new List<Item>(); // List to store collected items
+    public List<Item> inventory = new List<Item>(); 
     public int currentItemIndex = 0; // Index of the currently selected worldItem in inventory
-    public Transform handPosition; // Position where the worldItem will be visible in the player's hand
+    public Transform handPosition; 
     [SerializeField] GameObject[] itemPrefabs;
     [SerializeField] Vector3 objectScaleWhenInInventory;
     void Update()
@@ -49,24 +52,32 @@ public class InventoryManager : MonoBehaviour
             {
                 if(i.GetComponent<Item>().itemType == inventory[currentItemIndex].itemType)
                 {
-                   GameObject newGameObject = Instantiate(itemPrefabs[currentItemIndex], handPosition.position, Quaternion.identity, handPosition);
+                   GameObject newGameObject = Instantiate(i, handPosition.position, Quaternion.identity, handPosition);
                     newGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    newGameObject.GetComponent<Transform>().localScale = objectScaleWhenInInventory;
+                    newGameObject.tag = "ObjectInHand";
+                    if (newGameObject.GetComponent<Item>().itemType != "Lighter")
+                    {
+                        newGameObject.GetComponent<Transform>().localScale = objectScaleWhenInInventory;
+                    }
+                    else
+                    {
+                        newGameObject.GetComponent<PickUp>().lighterInHand = true;
+                    }
                 }
 
             }
-            //Instantiate(inventory[currentItemIndex].gameObject, handPosition.position, Quaternion.identity, handPosition);
+           
         }
     }
 
     void DropItem()
     {
-        // Instantiate the currently held worldItem in the world and remove it from inventory
+        
          GameObject newGameObject =  Instantiate(inventory[currentItemIndex].gameObject, handPosition.position, Quaternion.identity);
-       // newGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+      
         inventory.RemoveAt(currentItemIndex);
 
-        // Update current index if it exceeds inventory count
+       
         if (currentItemIndex >= inventory.Count)
             currentItemIndex = Mathf.Max(0, inventory.Count - 1);
 
@@ -87,9 +98,6 @@ public class InventoryManager : MonoBehaviour
                     
                 }
             }
-            //inventory.Add(worldItem);
-           
-            
            
             UpdateHandItem();
            

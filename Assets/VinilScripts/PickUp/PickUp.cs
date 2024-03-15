@@ -4,32 +4,40 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {    
-   [SerializeField] private GameObject pickupText;
+  
  [SerializeField] private GameObject LightOn;
+    PlayerInputAction playerInputAction;
+    public bool lighterInHand;
+    int lighterState =0;
     void Start()
     {
         LightOn.SetActive(false);
-        pickupText.SetActive(false);
+        playerInputAction = new PlayerInputAction();
+        playerInputAction.PlayerMovement.Enable();
+        playerInputAction.PlayerMovement.Interaction.performed += c => FireLighter();
     }
 
-
-    private void OnTriggerStay(Collider other)
+    void FireLighter()
     {
-        if (other.gameObject.tag == "Player")
+        if (lighterInHand)
         {
-            pickupText.SetActive(true);
-            if (Input.GetKey(KeyCode.E))
+            if (lighterState == 0)
             {
-                this.gameObject.SetActive(false);
                 LightOn.SetActive(true);
-                pickupText.SetActive(false);
+                lighterState = 1;
+            }
+            else
+            {
+                LightOn.SetActive(false);
+                lighterState = 0;
             }
         }
+        else
+        {
+            LightOn.SetActive(false);
+        }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        pickupText.SetActive(false);
-    }
+   
 }
 
 
