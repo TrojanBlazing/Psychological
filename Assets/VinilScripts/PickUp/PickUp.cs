@@ -9,6 +9,8 @@ public class PickUp : MonoBehaviour
     PlayerInputAction playerInputAction;
     public bool lighterInHand;
     int lighterState =0;
+    [SerializeField] Interaction playerInteraction;
+    [SerializeField] GameObject Candle;
     void Start()
     {
         LightOn.SetActive(false);
@@ -21,15 +23,22 @@ public class PickUp : MonoBehaviour
     {
         if (lighterInHand)
         {
-            if (lighterState == 0)
+            if (playerInteraction.isCandle)
             {
-                LightOn.SetActive(true);
-                lighterState = 1;
+                Candle.GetComponent<LightCandle>().LightTheCandle();
             }
             else
             {
-                LightOn.SetActive(false);
-                lighterState = 0;
+                if (lighterState == 0)
+                {
+                    LightOn.SetActive(true);
+                    lighterState = 1;
+                }
+                else
+                {
+                    LightOn.SetActive(false);
+                    lighterState = 0;
+                }
             }
         }
         else

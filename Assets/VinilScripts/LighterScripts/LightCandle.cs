@@ -4,33 +4,32 @@ using UnityEngine;
 
 public class LightCandle : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject LighterOb;
 
+    bool UnLit;
     [SerializeField]
     private GameObject CandleFlame;
 
-    [SerializeField]
-    private GameObject text;
-
-    private bool UnLit;
-    private bool inReach;
-
-    public float distance = 4.1f;
-
+   
     private void Start()
     {
         UnLit = true;
         CandleFlame.SetActive(false);   
-        text.SetActive(false);  
+        
     }
 
-    private void Update()
+    
+
+    public void LightTheCandle()
     {
-        CandleOn();
+        Debug.Log("Here");
+        if(UnLit)
+        {
+           
+            CandleFlame.SetActive(true);
+            UnLit = false;
+        }
     }
-
-    private void CandleOn()
+   /* private void CandleOn()
     {
         Ray ray=Camera.main.ScreenPointToRay(Input.mousePosition);  
         RaycastHit hit;
@@ -61,7 +60,7 @@ public class LightCandle : MonoBehaviour
             inReach = false;
             text.SetActive(false);
         }
-    }
+    }*/
 
 
 }

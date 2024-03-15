@@ -19,6 +19,7 @@ public class Interaction : MonoBehaviour
     bool isCollectiable;
     bool isBreaker;
     bool isDoor;
+    internal bool isCandle;
     RaycastHit hit;
 
     void Start()
@@ -32,7 +33,7 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
-
+       
         if (Physics.Raycast(pcamera.transform.position, pcamera.transform.forward, out hit, maxDistance))
         {  
             if (hit.transform.CompareTag("collectables"))
@@ -42,6 +43,7 @@ public class Interaction : MonoBehaviour
             }
             else
             {
+               
                 isCollectiable = false;
             }
             if (hit.transform.CompareTag("Breaker"))
@@ -61,8 +63,23 @@ public class Interaction : MonoBehaviour
             }
             else
             {
+                
                 isDoor = false;
             }
+            if (hit.transform.CompareTag("Candle"))
+            {
+                interactText.SetActive(true);
+                isCandle = true;
+            }
+            else
+            {
+               
+                isCandle = false;
+            }
+        }
+        else
+        {
+            interactText.SetActive(false);
         }
         if(inventoryManager.inventory.Count > 0)
         {
@@ -73,6 +90,11 @@ public class Interaction : MonoBehaviour
             gameObject.GetComponent<PlayerMovement>().canHeadBob = true;
         }
 
+    }
+
+    public RaycastHit InteractObjInfo()
+    {
+        return hit;
     }
     private void OnDrawGizmosSelected()
     {
