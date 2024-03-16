@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lighter : Interactable
 {
+    
     protected override void Interact()
     {
         base.Interact();

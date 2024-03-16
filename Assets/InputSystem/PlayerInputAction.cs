@@ -82,7 +82,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Inventory"",
+                    ""name"": ""UseTheItem"",
                     ""type"": ""Button"",
                     ""id"": ""d6606ad9-eee3-4c5a-bd2d-8455020559c5"",
                     ""expectedControlType"": ""Button"",
@@ -94,6 +94,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""name"": ""Interaction"",
                     ""type"": ""Button"",
                     ""id"": ""1ee54f79-c0b3-4a91-9437-44e36d5a81ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sofa"",
+                    ""type"": ""Button"",
+                    ""id"": ""6fbd94c1-52c8-4979-a5a2-88a3e42971ed"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -280,11 +289,11 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cd3e6fb2-e8f6-4f3a-8fad-95a0b39af55a"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Inventory"",
+                    ""action"": ""UseTheItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -296,6 +305,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""980bd6b5-c027-4512-8211-55744bb099f7"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sofa"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -851,8 +871,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_PlayerMovement_Crouch = m_PlayerMovement.FindAction("Crouch", throwIfNotFound: true);
         m_PlayerMovement_Zoom = m_PlayerMovement.FindAction("Zoom", throwIfNotFound: true);
         m_PlayerMovement_Look = m_PlayerMovement.FindAction("Look", throwIfNotFound: true);
-        m_PlayerMovement_Inventory = m_PlayerMovement.FindAction("Inventory", throwIfNotFound: true);
+        m_PlayerMovement_UseTheItem = m_PlayerMovement.FindAction("UseTheItem", throwIfNotFound: true);
         m_PlayerMovement_Interaction = m_PlayerMovement.FindAction("Interaction", throwIfNotFound: true);
+        m_PlayerMovement_Sofa = m_PlayerMovement.FindAction("Sofa", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -932,8 +953,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_Crouch;
     private readonly InputAction m_PlayerMovement_Zoom;
     private readonly InputAction m_PlayerMovement_Look;
-    private readonly InputAction m_PlayerMovement_Inventory;
+    private readonly InputAction m_PlayerMovement_UseTheItem;
     private readonly InputAction m_PlayerMovement_Interaction;
+    private readonly InputAction m_PlayerMovement_Sofa;
     public struct PlayerMovementActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -944,8 +966,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_PlayerMovement_Crouch;
         public InputAction @Zoom => m_Wrapper.m_PlayerMovement_Zoom;
         public InputAction @Look => m_Wrapper.m_PlayerMovement_Look;
-        public InputAction @Inventory => m_Wrapper.m_PlayerMovement_Inventory;
+        public InputAction @UseTheItem => m_Wrapper.m_PlayerMovement_UseTheItem;
         public InputAction @Interaction => m_Wrapper.m_PlayerMovement_Interaction;
+        public InputAction @Sofa => m_Wrapper.m_PlayerMovement_Sofa;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -973,12 +996,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
-            @Inventory.started += instance.OnInventory;
-            @Inventory.performed += instance.OnInventory;
-            @Inventory.canceled += instance.OnInventory;
+            @UseTheItem.started += instance.OnUseTheItem;
+            @UseTheItem.performed += instance.OnUseTheItem;
+            @UseTheItem.canceled += instance.OnUseTheItem;
             @Interaction.started += instance.OnInteraction;
             @Interaction.performed += instance.OnInteraction;
             @Interaction.canceled += instance.OnInteraction;
+            @Sofa.started += instance.OnSofa;
+            @Sofa.performed += instance.OnSofa;
+            @Sofa.canceled += instance.OnSofa;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -1001,12 +1027,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
-            @Inventory.started -= instance.OnInventory;
-            @Inventory.performed -= instance.OnInventory;
-            @Inventory.canceled -= instance.OnInventory;
+            @UseTheItem.started -= instance.OnUseTheItem;
+            @UseTheItem.performed -= instance.OnUseTheItem;
+            @UseTheItem.canceled -= instance.OnUseTheItem;
             @Interaction.started -= instance.OnInteraction;
             @Interaction.performed -= instance.OnInteraction;
             @Interaction.canceled -= instance.OnInteraction;
+            @Sofa.started -= instance.OnSofa;
+            @Sofa.performed -= instance.OnSofa;
+            @Sofa.canceled -= instance.OnSofa;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -1168,8 +1197,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnInventory(InputAction.CallbackContext context);
+        void OnUseTheItem(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnSofa(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

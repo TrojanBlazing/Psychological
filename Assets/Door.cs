@@ -29,12 +29,7 @@ public class Door : Interactable
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, openSpeed * Time.deltaTime);
         }
     }
-    public void DoorInteraction()
-    {
-        ToggleDoor();
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, openSpeed * Time.deltaTime);
-    }
-
+   
     public void LockDoor()
     {
         ToggleDoor();

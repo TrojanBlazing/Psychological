@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Sitting : MonoBehaviour
 {
     [SerializeField] GameObject playerStand;
     [SerializeField] GameObject playerSit;
-    [SerializeField] GameObject text;
-    [SerializeField] GameObject standText;
-
-     bool IsSitting;
+    [SerializeField] TextMeshProUGUI sofaInteractText;
+   // [SerializeField] TextMeshProUGUI standText;
+    [SerializeField] string sitTextString;
+    [SerializeField] string standTextString;
+    bool IsSitting;
     bool IsInteract;
 
     void Update()
@@ -18,8 +20,9 @@ public class Sitting : MonoBehaviour
     }
     private void Start()
     {
-        text.SetActive(false);
-        standText.SetActive(false);
+       sofaInteractText.text = string.Empty;
+       // standText.text = string.Empty;
+
     }
 
 
@@ -27,7 +30,7 @@ public class Sitting : MonoBehaviour
     {
         if (other.tag == "MainCamera")
         {
-            text.SetActive(true);
+            sofaInteractText.text = sitTextString;
             IsInteract = true;
         }
     }
@@ -35,7 +38,7 @@ public class Sitting : MonoBehaviour
     {
         if (other.tag == "MainCamera")
         {
-            text.SetActive(false);
+            sofaInteractText.text = string.Empty;
             IsInteract = false;
         }
     }
@@ -46,8 +49,8 @@ public class Sitting : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                text.SetActive(false);
-                standText.SetActive(true);
+                sofaInteractText.text = standTextString;
+                //standText.text = standTextString;
                 playerSit.SetActive(true);
                 IsSitting = true;
                 playerStand.SetActive(false);
@@ -59,7 +62,7 @@ public class Sitting : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
-                standText.SetActive(false);
+               // standText.text = string.Empty;
                 playerSit.SetActive(false);
                 playerStand.SetActive(true);
                 IsSitting = false;

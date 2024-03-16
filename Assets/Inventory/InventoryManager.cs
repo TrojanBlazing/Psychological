@@ -13,8 +13,15 @@ public class InventoryManager : MonoBehaviour
     public Transform handPosition; 
     [SerializeField] GameObject[] itemPrefabs;
     [SerializeField] Vector3 objectScaleWhenInInventory;
+
+    public bool itemInHand;
     void Update()
     {
+       
+        if(inventory.Count == 0)
+        {
+            itemInHand = false;
+        }
         // Scroll through the inventory using the mouse scroll wheel
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (inventory.Count > 0) // Check if inventory is not empty
@@ -51,8 +58,9 @@ public class InventoryManager : MonoBehaviour
             foreach (GameObject i in itemPrefabs)
             {
                 if(i.GetComponent<Item>().itemType == inventory[currentItemIndex].itemType)
-                {
+                {  
                    GameObject newGameObject = Instantiate(i, handPosition.position, Quaternion.identity, handPosition);
+                    itemInHand = true;
                     newGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     newGameObject.tag = "ObjectInHand";
                     newGameObject.layer = 0; // default

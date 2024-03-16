@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {    
   
- [SerializeField] private GameObject LightOn;
+    [SerializeField] private GameObject LightOn;
     PlayerInputAction playerInputAction;
     public bool lighterInHand;
     int lighterState =0;
@@ -16,7 +16,7 @@ public class PickUp : MonoBehaviour
         LightOn.SetActive(false);
         playerInputAction = new PlayerInputAction();
         playerInputAction.PlayerMovement.Enable();
-        playerInputAction.PlayerMovement.Interaction.performed += c => FireLighter();
+        playerInputAction.PlayerMovement.UseTheItem.performed += c => FireLighter();
     }
 
     void FireLighter()

@@ -60,7 +60,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Inventory",
+                    "name": "UseTheItem",
                     "type": "Button",
                     "id": "d6606ad9-eee3-4c5a-bd2d-8455020559c5",
                     "expectedControlType": "Button",
@@ -72,6 +72,15 @@
                     "name": "Interaction",
                     "type": "Button",
                     "id": "1ee54f79-c0b3-4a91-9437-44e36d5a81ae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Sofa",
+                    "type": "Button",
+                    "id": "6fbd94c1-52c8-4979-a5a2-88a3e42971ed",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -258,11 +267,11 @@
                 {
                     "name": "",
                     "id": "cd3e6fb2-e8f6-4f3a-8fad-95a0b39af55a",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Inventory",
+                    "action": "UseTheItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -274,6 +283,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "980bd6b5-c027-4512-8211-55744bb099f7",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sofa",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
