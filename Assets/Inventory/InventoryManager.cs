@@ -55,6 +55,7 @@ public class InventoryManager : MonoBehaviour
                    GameObject newGameObject = Instantiate(i, handPosition.position, Quaternion.identity, handPosition);
                     newGameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     newGameObject.tag = "ObjectInHand";
+                    newGameObject.layer = 0; // default
                     if (newGameObject.GetComponent<Item>().itemType != "Lighter")
                     {
                         newGameObject.GetComponent<Transform>().localScale = objectScaleWhenInInventory;

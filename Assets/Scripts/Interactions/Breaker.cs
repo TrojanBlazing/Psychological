@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Breaker : MonoBehaviour
+public class Breaker : Interactable
 {
     [SerializeField] GameObject lights;
     bool lightsOn;
@@ -24,5 +24,20 @@ public class Breaker : MonoBehaviour
             lightsOn = true;
         }
 
+    }
+
+    protected override void Interact()
+    {
+        base.Interact();
+        if (lightsOn)
+        {
+            lights.SetActive(false);
+            lightsOn = false;
+        }
+        else if (!lightsOn)
+        {
+            lights.SetActive(true);
+            lightsOn = true;
+        }
     }
 }

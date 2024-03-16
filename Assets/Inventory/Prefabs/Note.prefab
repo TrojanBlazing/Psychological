@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 5282428652132411783}
   - component: {fileID: -5532923976314081540}
   - component: {fileID: 6533814627045200294}
-  m_Layer: 0
-  m_Name: Cube 1
+  - component: {fileID: -7622549386453036648}
+  m_Layer: 6
+  m_Name: Note
   m_TagString: collectables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,3 +149,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: A
   isCollectible: 1
+--- !u!114 &-7622549386453036648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057122229254185185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1059b54bdcc2521439a3e9db84e00ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptMessage: Pick up the note

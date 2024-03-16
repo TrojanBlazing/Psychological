@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4929395820264329814}
   - component: {fileID: 205064682420783944}
   - component: {fileID: 9086386560562224600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CandleParticle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4842,7 +4842,7 @@ GameObject:
   - component: {fileID: 8641756342124777628}
   - component: {fileID: 6626493280158781384}
   - component: {fileID: 930973986480672153}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCylinder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4925,7 +4925,7 @@ GameObject:
   - component: {fileID: 5906765865304432737}
   - component: {fileID: 8569719820008546249}
   - component: {fileID: 4123411117614317438}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCylinder3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5008,7 +5008,7 @@ GameObject:
   - component: {fileID: 3872068086493322522}
   - component: {fileID: 5508711416719162364}
   - component: {fileID: 869000083013461294}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CandleFlameLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5126,7 +5126,7 @@ GameObject:
   - component: {fileID: 5198787984510664995}
   - component: {fileID: 3152423819856607791}
   - component: {fileID: 7690706982236946413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5209,7 +5209,7 @@ GameObject:
   - component: {fileID: 3051325746282028547}
   - component: {fileID: 7087041705829817579}
   - component: {fileID: 1263343040240241465}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CandleParent
   m_TagString: Candle
   m_Icon: {fileID: 0}
@@ -5276,7 +5276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2830418750101081864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LP
   m_TagString: Untagged
   m_Icon: {fileID: 0}

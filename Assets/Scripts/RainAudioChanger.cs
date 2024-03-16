@@ -6,7 +6,7 @@ using UnityEngine;
 public class RainAudioChanger : MonoBehaviour
 {
     [SerializeField] BaseRainScript baseRainScript;
-    [SerializeField] UpdatedDoor MainDoor;
+    [SerializeField] Door MainDoor;
     private void OnTriggerExit(Collider other)
     {
        

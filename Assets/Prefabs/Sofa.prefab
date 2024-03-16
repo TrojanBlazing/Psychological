@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6047387580774320359}
   - component: {fileID: 3748367569107499758}
   - component: {fileID: 8246877677970725780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Couch - Arm Rests
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8757936960824640143}
   - component: {fileID: 3847072898942484619}
   - component: {fileID: 1465269041305318801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sofa
   m_TagString: Sittable
   m_Icon: {fileID: 0}
@@ -166,8 +166,6 @@ MonoBehaviour:
   playerSit: {fileID: 0}
   text: {fileID: 0}
   standText: {fileID: 0}
-  IsSitting: 0
-  IsInteract: 0
 --- !u!65 &1465269041305318801
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -200,7 +198,7 @@ GameObject:
   - component: {fileID: 8713603622652615690}
   - component: {fileID: 3151292403751631060}
   - component: {fileID: 3094413229891583336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Couch - Cushion - Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +281,7 @@ GameObject:
   - component: {fileID: 3422806139541826003}
   - component: {fileID: 2286119050558609946}
   - component: {fileID: 3414074244840172129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Couch - Back cushions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +364,7 @@ GameObject:
   - component: {fileID: 4483175895136595399}
   - component: {fileID: 1440896811154282968}
   - component: {fileID: 9218600717275401581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Couch - Cushion - Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +447,7 @@ GameObject:
   - component: {fileID: 4695283395866666482}
   - component: {fileID: 853757251668167188}
   - component: {fileID: 7551571819075758545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Couch - Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +531,7 @@ GameObject:
   - component: {fileID: 7748059814927076604}
   - component: {fileID: 1874533394349452195}
   - component: {fileID: 2237308976015419737}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Couch - Cushion - Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

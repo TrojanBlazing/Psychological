@@ -126,29 +126,7 @@ public class PlayerMovement : MonoBehaviour
             portalableObject.HasTeleported -= PortalableObjectOnHasTeleported;
         }
     }
-    void InventoryToggle()
-    {
-        //inventory off
-        if (inventoryToggle == 0)
-        {
-            playerInputAction.PlayerMovement.Enable();
-            playerInputAction.Inventory.Disable();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            InventoryUI.SetActive(false);
-            inventoryToggle = 1;
-        }
-        //inventory on
-        else
-        {
-            InventoryUI.SetActive(true);
-            inventoryToggle = 0;
-            playerInputAction.PlayerMovement.Disable();
-            playerInputAction.Inventory.Enable();
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-        }
-    }
+   
 
     private void Zoom_canceled(InputAction.CallbackContext obj)
     {

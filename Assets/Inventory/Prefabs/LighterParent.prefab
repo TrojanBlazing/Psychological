@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7144739569961484448}
   - component: {fileID: 5573265820297647128}
   - component: {fileID: 7737524541908665887}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LighterLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6183043160087832047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cigarette lighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,8 @@ GameObject:
   - component: {fileID: 5812732610430201790}
   - component: {fileID: -3939372034416343307}
   - component: {fileID: 6050976839746529826}
-  m_Layer: 0
+  - component: {fileID: 4012128212505831275}
+  m_Layer: 6
   m_Name: LighterParent
   m_TagString: collectables
   m_Icon: {fileID: 0}
@@ -178,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966481822157396154}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.17, y: 0.733, z: 8.649}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -207,8 +208,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4873333, y: 1, z: 2.173771}
-  m_Center: {x: -0.19614697, y: 0, z: 0.12047863}
+  m_Size: {x: 0.55768204, y: 1, z: 0.59150314}
+  m_Center: {x: -0.03732109, y: 0, z: -0.109861374}
 --- !u!114 &5812732610430201790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +267,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: Lighter
   isCollectible: 1
+--- !u!114 &4012128212505831275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966481822157396154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c91f2e7a326f7442a7394a0ba8e741b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptMessage: Pick Up Lighter
 --- !u!1 &6120584496715850473
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +291,7 @@ GameObject:
   - component: {fileID: 1264563126848468052}
   - component: {fileID: 1334282597230866400}
   - component: {fileID: 1809853566173650393}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'LighterParticle System '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5107,7 +5121,7 @@ GameObject:
   - component: {fileID: 3297674698336479008}
   - component: {fileID: 7851866863620334037}
   - component: {fileID: 954368561745896710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: polySurface24
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,8 +14,9 @@ public class Interaction : MonoBehaviour
     [SerializeField] InventoryManager inventoryManager; // Reference to the InventoryManager script
     [SerializeField] Breaker breaker;
     [SerializeField] float delayTime;
+    [SerializeField] LayerMask interactableObjectsMask;
     PlayerInputAction playerInputAction;
-
+    [SerializeField] PlayerUI playerUI;
     bool isCollectiable;
     bool isBreaker;
     bool isDoor;
@@ -26,16 +27,37 @@ public class Interaction : MonoBehaviour
     {
         playerInputAction = new PlayerInputAction();
         playerInputAction.PlayerMovement.Enable();
-        playerInputAction.PlayerMovement.Interaction.performed += c => ObjectPickUp();
+       // playerInputAction.PlayerMovement.Interaction.performed += c => ObjectPickUp();
       
     }
   
 
     private void Update()
     {
-       
-        if (Physics.Raycast(pcamera.transform.position, pcamera.transform.forward, out hit, maxDistance))
+        playerUI.UpdateText(string.Empty);
+        if (Physics.Raycast(pcamera.transform.position, pcamera.transform.forward, out hit, maxDistance , interactableObjectsMask))
         {  
+
+           if(hit.collider.GetComponent<Interactable>() != null)
+            {
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                playerUI.UpdateText(interactable.promptMessage);
+                if(playerInputAction.PlayerMovement.Interaction.triggered)
+                {
+                    if (hit.transform.CompareTag("collectables") && inventoryManager!= null)
+                    {
+                            Item item = hit.transform.GetComponent<Item>(); // Assuming your collectible object has the Item script attached
+                            if (item != null)
+                            {
+                                inventoryManager.AddItem(item);
+                                Destroy(hit.transform.gameObject);
+                            }
+                        
+                    }
+                    interactable.BaseInteract();
+                }
+            }
+           /*
             if (hit.transform.CompareTag("collectables"))
             {
                 interactText.SetActive(true);
@@ -75,12 +97,9 @@ public class Interaction : MonoBehaviour
             {
                
                 isCandle = false;
-            }
+            }*/
         }
-        else
-        {
-            interactText.SetActive(false);
-        }
+        
         if(inventoryManager.inventory.Count > 0)
         {
             gameObject.GetComponent<PlayerMovement>().canHeadBob = false;
@@ -96,11 +115,7 @@ public class Interaction : MonoBehaviour
     {
         return hit;
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(pcamera.transform.position, pcamera.transform.forward * maxDistance);
-    }
+    
     void ObjectPickUp()
     {
         if (isCollectiable && inventoryManager != null)
@@ -119,7 +134,7 @@ public class Interaction : MonoBehaviour
         }
         if (isDoor)
         {
-            hit.transform.gameObject.GetComponent<UpdatedDoor>().DoorInteraction();
+            hit.transform.gameObject.GetComponent<Door>().DoorInteraction();
         }
     }
    
