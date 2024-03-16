@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class FollowPLayer : MonoBehaviour
 {
-    public float moveSpeed = 3f;
-    public float rotationSpeed = 3f;
+     [SerializeField] float moveSpeed = 3f;
+    [SerializeField]  float rotationSpeed = 3f;
 
     private bool isFollowingPlayer = false;
     private Transform playerTransform;
@@ -17,16 +17,7 @@ public class FollowPLayer : MonoBehaviour
 
     private void Update()
     {
-        if (isFollowingPlayer)
-        {
-            
-            Vector3 direction = (playerTransform.position - transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
-
-            
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
-        }
+        FollowPlayer();
     }
 
     private void FixedUpdate()
@@ -49,4 +40,18 @@ public class FollowPLayer : MonoBehaviour
             }
         }
     }
+
+   private void FollowPlayer()
+    {
+        if (isFollowingPlayer)
+        {
+
+            Vector3 direction = (playerTransform.position - transform.position).normalized;
+            transform.position += direction * moveSpeed * Time.deltaTime;
+
+
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+        }
+    }    
 }
