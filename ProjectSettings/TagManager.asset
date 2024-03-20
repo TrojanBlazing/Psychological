@@ -15,6 +15,7 @@ TagManager:
   - Ghost
   - ObjectInHand
   - Doll
+  - Reach
   layers:
   - Default
   - TransparentFX
