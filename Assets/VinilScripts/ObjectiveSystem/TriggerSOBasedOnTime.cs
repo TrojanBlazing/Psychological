@@ -4,8 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TriggerScriptableObjective : MonoBehaviour
+public class TriggerSOBasedOnTime : MonoBehaviour
 {
+
+    float gameTime;
+    [SerializeField] float endTime;
+    //[SerializeField] float EventNum;
     [SerializeField]
     private TextMeshProUGUI notiTextUI;
     [SerializeField]
@@ -23,25 +27,37 @@ public class TriggerScriptableObjective : MonoBehaviour
     [SerializeField] private AudioSource am;
 
     [SerializeField] private AudioClip notificationSound;
-
-    [SerializeField] TriggerSOBasedOnTime triggerSOBasedOnTime;
+    bool stopTimer;
     private void Awake()
     {
         objectcollider = gameObject.GetComponent<BoxCollider>();
-
+        stopTimer = true;
     }
-    private void OnTriggerEnter(Collider other)
+
+    public void TriggerStopTimer()
     {
-        if (other.CompareTag("Player"))
+        stopTimer = false;
+    }
+    private void Update()
+    {
+        Debug.Log(gameTime);
+        Debug.Log(stopTimer);
+        if(gameTime >endTime)
         {
+            
             EnableNotification();
+            stopTimer = true;
+            gameTime = (int)gameTime;
+        }
+        if (!stopTimer)
+        {
+            gameTime += Time.deltaTime;
         }
     }
-  
+
     void EnableNotification()
     {
-        triggerSOBasedOnTime.TriggerStopTimer();
-        objectcollider.enabled = false;
+        
         notianim.Play("FadeIn");
         notiTextUI.text = notificationScriptable.NotificationMessage;
         CharIconUi.sprite = notificationScriptable.urIcon;
@@ -52,16 +68,15 @@ public class TriggerScriptableObjective : MonoBehaviour
             am.Play();
         }
         Invoke(nameof(RemoveNotification), notificationScriptable.DisableTimer);
+
+        Invoke(nameof(TriggerDialogueWithDelay), 4f);
+    }
+    void TriggerDialogueWithDelay()
+    {
+        gameObject.GetComponent<Dialouge>().TriggerDialogue();
     }
     private void RemoveNotification()
     {
         notianim.Play("FadeOut");
-
-        Invoke(nameof(DestroyGameObject), 2f);
-    }
-
-    void DestroyGameObject()
-    {
-        Destroy(this.gameObject);
     }
 }

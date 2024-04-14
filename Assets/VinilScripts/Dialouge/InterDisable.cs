@@ -15,8 +15,8 @@ public class InterDisable : MonoBehaviour
     [SerializeField]
     private GameObject Act;
 
-   // [SerializeField]
-    //private AudioSource am;
+    [SerializeField]
+    private AudioSource am;
 
     [SerializeField]
     private GameObject text;
@@ -36,9 +36,9 @@ public class InterDisable : MonoBehaviour
         {
 
             text.SetActive(true);
-             //am.Play();
-            AudioManager.am.PlaySound("Snore");
-            door.gameObject.SetActive(true);
+             am.Play();
+            //AudioManager.am.PlaySound("Snore");
+            //door.gameObject.SetActive(true);
             Window.gameObject.SetActive(true);
 
             StartCoroutine(TextDisable());
@@ -49,6 +49,7 @@ public class InterDisable : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         text.SetActive(false);
+        door.gameObject.SetActive(true);
         Destroy(Act);
     }
 

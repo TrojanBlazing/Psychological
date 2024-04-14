@@ -16,6 +16,6 @@ MonoBehaviour:
   NotificationMessage: 'CHECK ON VARUN
 
 '
-  removeAfterExit: 1
-  disableAfterTimer: 0
-  DisableTimer: 3.5
+  removeAfterExit: 0
+  disableAfterTimer: 1
+  DisableTimer: 2

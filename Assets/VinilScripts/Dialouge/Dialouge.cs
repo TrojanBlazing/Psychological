@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Dialouge : MonoBehaviour
 {
     
-    [SerializeField]
-    private GameObject Act;
-
     [SerializeField]
     private AudioSource am;
 
@@ -19,29 +17,38 @@ public class Dialouge : MonoBehaviour
 
     [SerializeField] private float timer = 3f;
 
+    [SerializeField] GameObject BabySnoreTrigger;
     private void Start()
     {
         text.SetActive(false);
-     
-      
-    }
 
+       
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="Player")
-        {
-           
+        if(other.gameObject.CompareTag("Player"))
+        text.SetActive(true);
+        am.Play();
+        StartCoroutine(TextDisable());
+    }
+    internal void TriggerDialogue()
+    {
+       
             text.SetActive(true);
             am.Play();
             StartCoroutine(TextDisable());
            
         }
-    }
+    
     IEnumerator TextDisable()
     {
         yield return new WaitForSeconds(timer);
         text.SetActive(false);
-        Destroy( Act ); 
+        if (BabySnoreTrigger != null)
+        {
+            BabySnoreTrigger.SetActive(true);
+        }
+        Destroy(this.gameObject); 
     }
 
 }
