@@ -10,7 +10,8 @@ public class Dialouge : MonoBehaviour
     
     [SerializeField]
     private AudioSource am;
-
+    [SerializeField]
+    GameObject ghostTrigger;
     [SerializeField]
     private GameObject text;
     //[SerializeField] private string dialouge = "Let me Check on Varun";
@@ -29,6 +30,7 @@ public class Dialouge : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         text.SetActive(true);
         am.Play();
+        ghostTrigger.SetActive(true);
         StartCoroutine(TextDisable());
     }
     internal void TriggerDialogue()

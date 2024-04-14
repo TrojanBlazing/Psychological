@@ -6,8 +6,9 @@ public class WindowJump : MonoBehaviour
     [SerializeField] GameObject ghostObject;
     [SerializeField] Transform startPoint;
     [SerializeField] Transform endPoint;
-    [SerializeField] float duration = 1f;
+    [SerializeField] float duration = 3f;
 
+   
     private void Start()
     {
         ghostObject.SetActive(false);
@@ -25,7 +26,7 @@ public class WindowJump : MonoBehaviour
         {
             ghostObject.SetActive(true);
             ghostObject.transform.position = startPoint.position;
-
+            ghostObject.GetComponent<AudioSource>().Play();
             float elapsedTime = 0f;
 
             while (elapsedTime < duration)
@@ -38,6 +39,13 @@ public class WindowJump : MonoBehaviour
             ghostObject.transform.position = endPoint.position;
             ghostObject.SetActive(false);
         }
+        Invoke(nameof(DestroySelf),4f);
+         
+    }
+
+    void DestroySelf()
+    {
+        Destroy(this.gameObject.GetComponentInParent<Transform>().gameObject);
     }
 }
 

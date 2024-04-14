@@ -107,6 +107,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b7ce5c0-816a-47b2-966e-d0d44170dad6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -316,6 +325,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Sofa"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cdd84fa3-680c-4082-9130-70fb90dda17e"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -874,6 +894,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_PlayerMovement_UseTheItem = m_PlayerMovement.FindAction("UseTheItem", throwIfNotFound: true);
         m_PlayerMovement_Interaction = m_PlayerMovement.FindAction("Interaction", throwIfNotFound: true);
         m_PlayerMovement_Sofa = m_PlayerMovement.FindAction("Sofa", throwIfNotFound: true);
+        m_PlayerMovement_Map = m_PlayerMovement.FindAction("Map", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -956,6 +977,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_UseTheItem;
     private readonly InputAction m_PlayerMovement_Interaction;
     private readonly InputAction m_PlayerMovement_Sofa;
+    private readonly InputAction m_PlayerMovement_Map;
     public struct PlayerMovementActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -969,6 +991,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @UseTheItem => m_Wrapper.m_PlayerMovement_UseTheItem;
         public InputAction @Interaction => m_Wrapper.m_PlayerMovement_Interaction;
         public InputAction @Sofa => m_Wrapper.m_PlayerMovement_Sofa;
+        public InputAction @Map => m_Wrapper.m_PlayerMovement_Map;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1005,6 +1028,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Sofa.started += instance.OnSofa;
             @Sofa.performed += instance.OnSofa;
             @Sofa.canceled += instance.OnSofa;
+            @Map.started += instance.OnMap;
+            @Map.performed += instance.OnMap;
+            @Map.canceled += instance.OnMap;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -1036,6 +1062,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Sofa.started -= instance.OnSofa;
             @Sofa.performed -= instance.OnSofa;
             @Sofa.canceled -= instance.OnSofa;
+            @Map.started -= instance.OnMap;
+            @Map.performed -= instance.OnMap;
+            @Map.canceled -= instance.OnMap;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -1200,6 +1229,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnUseTheItem(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
         void OnSofa(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
