@@ -1,7 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
+using System.Collections;
 
 public class Examine : MonoBehaviour
 {
@@ -15,10 +16,16 @@ public class Examine : MonoBehaviour
     bool onInspect = false;
     GameObject inspected;
 
-    
-
     [SerializeField]
     private PlayerMovement pm;
+
+    
+    [SerializeField]
+    private GameObject inspectUI;
+    [SerializeField]
+    private Image itemImage;
+    [SerializeField]
+    private TextMeshProUGUI itemDescription;
 
     private void Update()
     {
@@ -28,18 +35,20 @@ public class Examine : MonoBehaviour
     IEnumerator pickItem()
     {
         pm.enabled = false;
-        // originalScale=inspected.transform.localScale;
-        yield return new WaitForSeconds(0.2f);
-        //inspected.transform.localScale = originalScale; 
+        yield return new WaitForSeconds(0.1f);
         inspected.transform.SetParent(player);
-        
-       
+
+
+        ShowInspectUI(inspected);
     }
+
     IEnumerator dropItem()
     {
         inspected.transform.rotation = Quaternion.identity;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         pm.enabled = true;
+
+        HideInspectUI();
     }
 
     private void Inspect()
@@ -65,7 +74,6 @@ public class Examine : MonoBehaviour
         {
             inspected.transform.position = Vector3.Lerp(inspected.transform.position, player.position, 0.2f);
             player.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 125f);
-
         }
         else if (inspected != null)
         {
@@ -79,5 +87,22 @@ public class Examine : MonoBehaviour
         }
     }
 
+    private void ShowInspectUI(GameObject item)
+    {
+        inspectUI.SetActive(true);
 
+        var itemDetails = item.GetComponent<ItemDetails>();
+        if (itemDetails != null)
+        {
+            itemImage.sprite = itemDetails.itemSprite;
+            itemDescription.text = itemDetails.itemDescription;
+        }
+    }
+
+    private void HideInspectUI()
+    {
+        inspectUI.SetActive(false);
+        itemImage.sprite = null;
+        //itemDescription.text = "";
+    }
 }

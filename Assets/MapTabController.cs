@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class MapTabController : MonoBehaviour
 {
     [SerializeField] Image GroundFloor;
-    [SerializeField] Image Basement;
+   // [SerializeField] Image Basement;
     [SerializeField] Image TopFloor;
 
     [SerializeField] GameObject TabCanvas;
@@ -43,21 +43,15 @@ public class MapTabController : MonoBehaviour
     public void OnGroundClick()
     {
         GroundFloor.enabled = true;
-        Basement.enabled = false;
+       // Basement.enabled = false;
         TopFloor.enabled = false;
     }
 
-    public void OnBasementClick()
-    {
-        TopFloor.enabled = false;
-        GroundFloor.enabled = false;
-        Basement.enabled = true;
-    }
-
+  
     public void OnTopClick()
     {
         GroundFloor.enabled = false;
-        Basement.enabled = false;
+       // Basement.enabled = false;
         TopFloor.enabled = true;
     }
 }
