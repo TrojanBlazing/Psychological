@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     PlayerInputAction playerInputAction;
     private PortalableObject portalableObject;
     public bool CanMove { get; private set; }
-    bool isSprinting;
+    internal bool isSprinting;
     
     bool shouldCrouch => characterController.isGrounded && !inCrouchingAnimation;
 
@@ -65,9 +65,9 @@ public class PlayerMovement : MonoBehaviour
     Camera playerCam;
     CharacterController characterController;
 
-    Vector3 moveDirection;
+    internal Vector3 moveDirection;
     Vector2 currentInput;
-
+    
     float rotationX;
     
     [SerializeField] GameObject InventoryUI;
@@ -165,6 +165,8 @@ public class PlayerMovement : MonoBehaviour
             }
             ApplyMovement();
         }
+
+       
         }
 
     
