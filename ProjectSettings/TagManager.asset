@@ -16,6 +16,8 @@ TagManager:
   - ObjectInHand
   - Doll
   - Reach
+  - Pick
+  - VHS
   layers:
   - Default
   - TransparentFX
@@ -25,8 +27,8 @@ TagManager:
   - UI
   - Interactable
   - Ground
-  - 
-  - 
+  - Pick
+  - VHS
   - 
   - 
   - 

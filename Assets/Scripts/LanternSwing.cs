@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class LanternSwingController : MonoBehaviour
 {
-    
-    public Transform playerTransform;
+
+    [SerializeField]
+    Transform playerTransform;
 
     
     private Animator animator;
