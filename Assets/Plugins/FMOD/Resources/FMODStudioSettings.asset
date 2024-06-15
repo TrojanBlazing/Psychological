@@ -536,8 +536,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: D:/FMOD Project files/Traumatezied/Traumatezied.fspro
-  sourceBankPath: D:/FMOD Project files/Traumatezied/Build
+  sourceProjectPath: Assets/Traumatezied/Traumatezied.fspro
+  sourceBankPath: Assets/Traumatezied/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

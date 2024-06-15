@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{dbaeb76c-9fea-4ebf-b529-4f903e8c045c}">
+		<property name="assetPath">
+			<value>Horror Elements/Hits/Hit_stress.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>10.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>

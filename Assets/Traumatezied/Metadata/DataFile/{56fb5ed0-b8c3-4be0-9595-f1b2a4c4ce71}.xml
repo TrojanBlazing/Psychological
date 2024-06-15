@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{56fb5ed0-b8c3-4be0-9595-f1b2a4c4ce71}">
+		<property name="assetPath">
+			<value>Horror Elements/Hits/Hit_metalic.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>

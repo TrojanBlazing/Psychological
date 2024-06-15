@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{25941632-9d51-43d2-b8e0-0f481984482a}">
+		<property name="assetPath">
+			<value>Horror Sfx/Wav/Bonecrack_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.30933333333333335</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>

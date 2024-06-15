@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{8efccab7-33d2-4485-a32e-7adc19ed2c37}">
+		<property name="assetPath">
+			<value>Horror Elements/Save Room/SR_We_are_safe.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>

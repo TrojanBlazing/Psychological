@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{98445559-6971-4130-8fc4-a2a09bbb5c40}">
+		<property name="assetPath">
+			<value>Horror Elements/Ambient/Amb_Deep_space_1.wav.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>

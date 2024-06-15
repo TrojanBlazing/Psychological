@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{18c424c8-a637-4e04-9152-2c1925229d22}">
+		<property name="assetPath">
+			<value>Horror Sfx/Mp3/Laugh_Evil_00.mp3.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>

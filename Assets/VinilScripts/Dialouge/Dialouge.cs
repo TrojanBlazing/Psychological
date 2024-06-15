@@ -45,10 +45,10 @@ public class Dialouge : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         text.SetActive(false);
-        if (BabySnoreTrigger != null)
+       /* if (BabySnoreTrigger != null)
         {
             BabySnoreTrigger.SetActive(true);
-        }
+        }*/
         Destroy(this.gameObject); 
     }
 

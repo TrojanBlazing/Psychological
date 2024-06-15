@@ -1155,11 +1155,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261438692}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &280056182 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1025752709358847000, guid: 5cedc81ef6dc4c144a89c08ce352f321, type: 3}
-  m_PrefabInstance: {fileID: 734841539}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &358039643
 GameObject:
   m_ObjectHideFlags: 0
@@ -6247,7 +6242,6 @@ MonoBehaviour:
   ghostTrigger: {fileID: 0}
   text: {fileID: 7428029542554365785}
   timer: 1
-  BabySnoreTrigger: {fileID: 280056182}
   dialogueNumber: 0
 --- !u!1 &1688093571
 GameObject:

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{4ece4e58-d0ca-41bd-a54c-7510b49da4e5}">
+		<property name="assetPath">
+			<value>Horror Sfx/Mp3/Blood_Dripping_Loop_00.mp3.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>

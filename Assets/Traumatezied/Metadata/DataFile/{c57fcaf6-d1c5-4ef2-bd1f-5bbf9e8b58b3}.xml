@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{c57fcaf6-d1c5-4ef2-bd1f-5bbf9e8b58b3}">
+		<property name="assetPath">
+			<value>Horror Sfx/Mp3/Scream_Male_02.mp3.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>

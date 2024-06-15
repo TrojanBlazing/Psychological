@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{40caa7a4-e11e-450c-993d-8a52f9d024f8}">
+		<property name="assetPath">
+			<value>Horror Sfx/Mp3/Stab_Knife_02.mp3.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>
