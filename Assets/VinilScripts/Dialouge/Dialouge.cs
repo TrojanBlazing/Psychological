@@ -8,8 +8,7 @@ using Unity.VisualScripting;
 public class Dialouge : MonoBehaviour
 {
     
-    [SerializeField]
-    private AudioSource am;
+   
     [SerializeField]
     GameObject ghostTrigger;
     [SerializeField]
@@ -19,6 +18,8 @@ public class Dialouge : MonoBehaviour
     [SerializeField] private float timer = 3f;
 
     [SerializeField] GameObject BabySnoreTrigger;
+
+    [SerializeField] DialoguesList dialogueNumber;
     private void Start()
     {
         text.SetActive(false);
@@ -29,7 +30,7 @@ public class Dialouge : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         text.SetActive(true);
-        am.Play();
+        AudioManager.instance.SetDiaolgue(dialogueNumber);
         ghostTrigger.SetActive(true);
         StartCoroutine(TextDisable());
     }
@@ -37,7 +38,7 @@ public class Dialouge : MonoBehaviour
     {
        
             text.SetActive(true);
-            am.Play();
+        AudioManager.instance.SetDiaolgue(dialogueNumber);
             StartCoroutine(TextDisable());
            
         }

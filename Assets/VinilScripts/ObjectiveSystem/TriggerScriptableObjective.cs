@@ -19,11 +19,6 @@ public class TriggerScriptableObjective : MonoBehaviour
 
     private BoxCollider objectcollider;
 
-
-    [SerializeField] private AudioSource am;
-
-    [SerializeField] private AudioClip notificationSound;
-
     [SerializeField] TriggerSOBasedOnTime triggerSOBasedOnTime;
     private void Awake()
     {
@@ -46,11 +41,7 @@ public class TriggerScriptableObjective : MonoBehaviour
         notiTextUI.text = notificationScriptable.NotificationMessage;
         CharIconUi.sprite = notificationScriptable.urIcon;
 
-        if (notificationSound != null && am != null)
-        {
-            am.clip = notificationSound;
-            am.Play();
-        }
+        AudioManager.instance.PlayOneShotOnPlayer(FmodEvents.instance.ObjectiveSFX);
         Invoke(nameof(RemoveNotification), notificationScriptable.DisableTimer);
     }
     private void RemoveNotification()

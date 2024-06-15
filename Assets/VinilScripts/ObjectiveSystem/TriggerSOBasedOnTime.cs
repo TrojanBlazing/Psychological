@@ -22,11 +22,6 @@ public class TriggerSOBasedOnTime : MonoBehaviour
     private Animator notianim;
 
     private BoxCollider objectcollider;
-
-
-    [SerializeField] private AudioSource am;
-
-    [SerializeField] private AudioClip notificationSound;
     bool stopTimer;
     private void Awake()
     {
@@ -57,16 +52,11 @@ public class TriggerSOBasedOnTime : MonoBehaviour
 
     void EnableNotification()
     {
-        
+        AudioManager.instance.PlayOneShotOnPlayer(FmodEvents.instance.ObjectiveSFX);
         notianim.Play("FadeIn");
         notiTextUI.text = notificationScriptable.NotificationMessage;
         CharIconUi.sprite = notificationScriptable.urIcon;
 
-        if (notificationSound != null && am != null)
-        {
-            am.clip = notificationSound;
-            am.Play();
-        }
         Invoke(nameof(RemoveNotification), notificationScriptable.DisableTimer);
 
         Invoke(nameof(TriggerDialogueWithDelay), 4f);

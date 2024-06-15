@@ -22,8 +22,7 @@ public class JumpScareWindow : MonoBehaviour
             
             ghostAnimator.SetTrigger("Activate");
 
-            // AudioSource.PlayClipAtPoint(jumpscareSound, transform.position);
-            AudioManager.am.PlaySound("WIndowJumpScare");
+           
 
             hasPlayed = true;
         }
