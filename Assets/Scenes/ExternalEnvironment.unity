@@ -8896,7 +8896,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7266017624419453698}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc80d2e6ca6f71343b1f7c2585383755, type: 3}
   m_Name: 
@@ -8914,8 +8914,8 @@ MonoBehaviour:
   gravity: 0
   lookSpeedX: 0.0009
   lookSpeedY: 0.0009
-  upperLookLimit: 55.6
-  lowerLookLimit: 51.7
+  upperLookLimit: 21.4
+  lowerLookLimit: 22.4
   crouchHeight: 0
   standHeight: 0
   timeToCrouch: 0
@@ -9288,8 +9288,6 @@ MonoBehaviour:
   tvoff: {fileID: 1142965949}
   tvon: {fileID: 336107}
   vhs: {fileID: 5114238520674022491}
-  interactable: 0
-  toggle: 0
   vhsAnim: {fileID: 924421319660378327}
   videoTime: 40
   interactionDistance: 5
@@ -14027,7 +14025,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 5114238520674022491}
   intText: {fileID: 413181161}
-  interactable: 0
   interactionDistance: 5
 --- !u!54 &8799303524452901190
 Rigidbody:

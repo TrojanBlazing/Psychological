@@ -18,6 +18,8 @@ TagManager:
   - Reach
   - Pick
   - VHS
+  - HidingPos
+  - HidingSpot
   layers:
   - Default
   - TransparentFX
