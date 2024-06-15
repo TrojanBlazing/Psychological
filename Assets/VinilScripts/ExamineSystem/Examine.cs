@@ -1,8 +1,7 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections;
 
 public class Examine : MonoBehaviour
 {
@@ -19,7 +18,6 @@ public class Examine : MonoBehaviour
     [SerializeField]
     private PlayerMovement pm;
 
-    
     [SerializeField]
     private GameObject inspectUI;
     [SerializeField]
@@ -37,8 +35,6 @@ public class Examine : MonoBehaviour
         pm.enabled = false;
         yield return new WaitForSeconds(0.1f);
         inspected.transform.SetParent(player);
-
-
         ShowInspectUI(inspected);
     }
 
@@ -47,14 +43,12 @@ public class Examine : MonoBehaviour
         inspected.transform.rotation = Quaternion.identity;
         yield return new WaitForSeconds(0.1f);
         pm.enabled = true;
-
         HideInspectUI();
     }
 
     private void Inspect()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
-
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, forward, out hit, distance))
@@ -91,11 +85,15 @@ public class Examine : MonoBehaviour
     {
         inspectUI.SetActive(true);
 
-        var itemDetails = item.GetComponent<ItemDetails>();
-        if (itemDetails != null)
+        var itemDetailsHolder = item.GetComponent<ItemHolder>();
+        if (itemDetailsHolder != null)
         {
-            itemImage.sprite = itemDetails.itemSprite;
-            itemDescription.text = itemDetails.itemDescription;
+            var itemDetails = itemDetailsHolder.itemDetails;
+            if (itemDetails != null)
+            {
+                itemImage.sprite = itemDetails.itemSprite;
+                itemDescription.text = itemDetails.itemDescription;
+            }
         }
     }
 

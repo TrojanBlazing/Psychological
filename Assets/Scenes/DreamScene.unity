@@ -152,10 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec81d16cad09f83428c0c2c18db216a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx:
-  - Name: Chase
-    clip: {fileID: 8300000, guid: a987a20085715e6469df002f8eb09dec, type: 3}
-  sfxsource: {fileID: 1290425347}
 --- !u!4 &97036781
 Transform:
   m_ObjectHideFlags: 0
@@ -889,7 +885,7 @@ Transform:
   m_GameObject: {fileID: 4164407224040113479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.29, y: 2.46, z: -20.022}
+  m_LocalPosition: {x: -8.23, y: 2.46, z: -20.75}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7296,6 +7292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayDistance: 3
+  anim: {fileID: 462994905}
+  anime: {fileID: 7759549735550582960}
 --- !u!95 &7759549735550582960
 Animator:
   serializedVersion: 5
