@@ -16,9 +16,6 @@ public class InterDisable : MonoBehaviour
     private GameObject Act;
 
     [SerializeField]
-    private AudioSource am;
-
-    [SerializeField]
     private GameObject text;
     //[SerializeField] private string dialouge = "Yea hes asleep";
 
@@ -36,9 +33,6 @@ public class InterDisable : MonoBehaviour
         {
 
             text.SetActive(true);
-             am.Play();
-            //AudioManager.am.PlaySound("Snore");
-            //door.gameObject.SetActive(true);
             Window.gameObject.SetActive(true);
 
             StartCoroutine(TextDisable());

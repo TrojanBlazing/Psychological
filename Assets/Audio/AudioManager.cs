@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
     void CreateDialogueInstance(EventReference dialogue)
     {
         dialogueInstance = CreateEventInstance(dialogue);
-       // dialogueInstance.start();
+      
     }
    void CreateMusicInstance(EventReference music)
     {

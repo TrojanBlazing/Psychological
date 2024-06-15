@@ -17,8 +17,6 @@ public class Dialouge : MonoBehaviour
 
     [SerializeField] private float timer = 3f;
 
-    [SerializeField] GameObject BabySnoreTrigger;
-
     [SerializeField] DialoguesList dialogueNumber;
     private void Start()
     {
