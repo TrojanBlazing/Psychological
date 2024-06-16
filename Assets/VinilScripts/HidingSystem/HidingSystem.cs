@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HidingSystem : MonoBehaviour
 {
@@ -7,23 +8,49 @@ public class HidingSystem : MonoBehaviour
     private PlayerMovement playerController;
     private Camera playerCamera;
     private GameObject currentHidingSpot;
+<<<<<<< Updated upstream
     //[SerializeField]
    // private Animator anim;
+=======
+    [SerializeField] private Animator anim;
+    [SerializeField] private Animator anime;
+>>>>>>> Stashed changes
 
- 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
+
+    PlayerInputAction pa;
+    private InputAction interactAction;
 
     void Start()
     {
         playerController = GetComponent<PlayerMovement>();
-        playerCamera = Camera.main; 
+        playerCamera = Camera.main;
+
+        pa = new PlayerInputAction();
+        pa.PlayerMovement.Enable();
+        interactAction = pa.PlayerMovement.Interaction;
+        interactAction.performed += OnInteractPerformed;
+    }
+
+    private void OnEnable()
+    {
+        interactAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        interactAction.Disable();
     }
 
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.E))
+    }
+
+    private void OnInteractPerformed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             if (isHiding)
             {
@@ -39,13 +66,11 @@ public class HidingSystem : MonoBehaviour
                 {
                     GameObject hitObject = hit.collider.gameObject;
 
-                    
                     if (IsHidingSpot(hitObject))
                     {
-                        
                         Vector3 toHidingSpot = hitObject.transform.position - transform.position;
                         float angle = Vector3.Angle(transform.forward, toHidingSpot);
-                        float maxAngle = 90f; 
+                        float maxAngle = 90f;
 
                         if (angle <= maxAngle)
                         {
@@ -68,7 +93,6 @@ public class HidingSystem : MonoBehaviour
             return true;
         }
 
-      
         if (obj.transform.parent != null && obj.transform.parent.CompareTag("HidingSpot"))
         {
             return true;
@@ -79,29 +103,33 @@ public class HidingSystem : MonoBehaviour
 
     void EnterHidingSpot(GameObject hidingSpot)
     {
-        
         if (isHiding)
         {
             return;
         }
 
-      
         Transform hidingPosition = hidingSpot.transform.Find("HidingPos");
 
         if (hidingPosition != null)
         {
-
             playerController.enabled = false;
-
             originalPosition = transform.position;
             originalRotation = transform.rotation;
 
+<<<<<<< Updated upstream
 
          
+=======
+            anim.SetTrigger("Open");
+>>>>>>> Stashed changes
             transform.position = hidingPosition.position;
             transform.rotation = hidingPosition.rotation;
             
 
+<<<<<<< Updated upstream
+=======
+            anime.SetTrigger("In");
+>>>>>>> Stashed changes
             isHiding = true;
             currentHidingSpot = hidingSpot;
         }
@@ -113,23 +141,24 @@ public class HidingSystem : MonoBehaviour
 
     void ExitHidingSpot()
     {
-       
         if (!isHiding || currentHidingSpot == null)
         {
             return;
         }
 
-       
         playerController.enabled = true;
-
-        
         currentHidingSpot = null;
 
        
         transform.position = originalPosition;
         transform.rotation = originalRotation;
+<<<<<<< Updated upstream
       
 
+=======
+
+        anime.SetTrigger("Out");
+>>>>>>> Stashed changes
         isHiding = false;
     }
 }

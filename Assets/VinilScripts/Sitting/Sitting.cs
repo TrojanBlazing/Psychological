@@ -1,72 +1,105 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Sitting : MonoBehaviour
 {
     [SerializeField] GameObject playerStand;
     [SerializeField] GameObject playerSit;
     [SerializeField] TextMeshProUGUI sofaInteractText;
-   // [SerializeField] TextMeshProUGUI standText;
     [SerializeField] string sitTextString;
     [SerializeField] string standTextString;
+
+    [SerializeField] float interactionDistance = 3f; 
+
     bool IsSitting;
     bool IsInteract;
 
+    PlayerInputAction pa;
+    private InputAction interactAction;
+
+    private void Awake()
+    {
+        pa = new PlayerInputAction();
+    }
+
+    private void OnEnable()
+    {
+        pa.PlayerMovement.Enable();
+        interactAction = pa.PlayerMovement.Interact;
+
+        interactAction.performed += OnInteractPerformed;
+    }
+
+    private void OnDisable()
+    {
+        interactAction.performed -= OnInteractPerformed;
+        pa.PlayerMovement.Disable();
+    }
+
     void Update()
     {
-        Sit();
-    }
-    private void Start()
-    {
-       sofaInteractText.text = string.Empty;
-       // standText.text = string.Empty;
-
+        RaycastForInteraction();
+        SitOrStand();
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    private void RaycastForInteraction()
     {
-        if (other.tag == "MainCamera")
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            sofaInteractText.text = sitTextString;
-            IsInteract = true;
+            if (hit.collider.CompareTag("Sittable"))
+            {
+                sofaInteractText.text = sitTextString;
+                IsInteract = true;
+            }
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "MainCamera")
+        else
         {
             sofaInteractText.text = string.Empty;
             IsInteract = false;
         }
     }
 
-    private void Sit()
+    private void OnInteractPerformed(InputAction.CallbackContext context)
     {
-        if (IsInteract == true)
+        if (IsInteract && !IsSitting)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                sofaInteractText.text = standTextString;
-                //standText.text = standTextString;
-                playerSit.SetActive(true);
-                IsSitting = true;
-                playerStand.SetActive(false);
-                IsInteract = false;
-            }
+            SitDown();
         }
+        else if (IsSitting)
+        {
+            StandUp();
+        }
+    }
 
-        if (IsSitting == true)
+    private void SitOrStand()
+    {
+        if (IsSitting)
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
-               // standText.text = string.Empty;
-                playerSit.SetActive(false);
-                playerStand.SetActive(true);
-                IsSitting = false;
+                StandUp();
             }
         }
+    }
+
+    private void SitDown()
+    {
+        sofaInteractText.text = standTextString;
+        playerSit.SetActive(true);
+        IsSitting = true;
+        playerStand.SetActive(false);
+    }
+
+    private void StandUp()
+    {
+        sofaInteractText.text = sitTextString;
+        playerSit.SetActive(false);
+        playerStand.SetActive(true);
+        IsSitting = false;
     }
 }
