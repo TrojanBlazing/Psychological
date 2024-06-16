@@ -22,6 +22,6 @@ public class FadeOutTrigger : MonoBehaviour
    IEnumerator LoadNextSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(2);
+        SceneController.instance.NextLevel();
     }
 }

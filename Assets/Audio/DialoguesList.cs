@@ -7,3 +7,11 @@ public enum DialoguesList
         , Dialogue_3 = 2
 
 }
+
+public enum RandomSFX
+{
+
+    VarunSnore = 0,
+    DoorKnock = 1,
+    DoorGhost = 2
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{8bbb512f-12a2-4762-9fb9-c375fe0d2b58}">
+		<property name="name">
+			<value>RandomSFX</value>
+		</property>
+		<relationship name="folder">
+			<destination>{6a13eb99-22e5-48af-81b3-5c73b9c21f83}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{206f3951-7d04-4841-874c-66b4d1533cc4}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{206f3951-7d04-4841-874c-66b4d1533cc4}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>VarunSnore</value>
+			<value>DoorKnock</value>
+			<value>DoorGhost</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class TvTrigger : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-   // public AudioSource am;
-
+    [SerializeField] private GameObject TV;
+ 
     [SerializeField] private GameObject trigger;
     void Start()
     {
-        player.SetActive(false);
+        TV.SetActive(false);
         trigger.SetActive(false);
     }
-
-
- 
-
-    private void OnTriggerEnter(Collider other)
+     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            player.SetActive(true);
+            TV.SetActive(true);
             trigger.SetActive(true);
-           // am.Play();
+          
 
         }
     }

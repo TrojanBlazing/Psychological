@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &97036780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,10 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec81d16cad09f83428c0c2c18db216a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx:
-  - Name: Chase
-    clip: {fileID: 8300000, guid: a987a20085715e6469df002f8eb09dec, type: 3}
-  sfxsource: {fileID: 1290425347}
 --- !u!4 &97036781
 Transform:
   m_ObjectHideFlags: 0

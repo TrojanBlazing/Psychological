@@ -23,6 +23,9 @@ public class FmodEvents : MonoBehaviour
 
     [field: Header("Dialogue")]
     [field: SerializeField] public EventReference Dialogue { get; private set; }
+
+    [field: Header("Random SFX")]
+    [field: SerializeField] public EventReference RandomSFX { get; private set; }
     public static FmodEvents instance {  get; private set; }
 
     private void Awake()

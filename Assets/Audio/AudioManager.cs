@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     EventInstance ambienceInstance;
     EventInstance musicInstance;
     EventInstance dialogueInstance;
+    EventInstance randomSFXInstance;
     public static AudioManager instance { get; private set; }
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class AudioManager : MonoBehaviour
         //CreateAmbienceInstance(FmodEvents.instance.Ambience);
         //CreateMusicInstance(FmodEvents.instance.Music);
         CreateDialogueInstance(FmodEvents.instance.Dialogue);
+        CreateRandomSFXInstance(FmodEvents.instance.RandomSFX);
     }
 
     public void PlayOneShotOnPlayer(EventReference sound) 
@@ -60,7 +62,13 @@ public class AudioManager : MonoBehaviour
         dialogueInstance = CreateEventInstance(dialogue);
       
     }
-   void CreateMusicInstance(EventReference music)
+
+    void CreateRandomSFXInstance(EventReference SFX)
+    {
+        randomSFXInstance = CreateEventInstance(SFX);
+
+    }
+    void CreateMusicInstance(EventReference music)
     {
         musicInstance= CreateEventInstance(music);
         musicInstance.start();
@@ -72,6 +80,11 @@ public class AudioManager : MonoBehaviour
         return eventInstance;
     }
 
+    public void SetRandomSFX(RandomSFX index)
+    {
+        randomSFXInstance.setParameterByName("RandomSFX",(float) index ); 
+        randomSFXInstance.start();
+    }
     public void SetDiaolgue(DialoguesList index)
     {
         dialogueInstance.setParameterByName("Dialogues" , (float)index);

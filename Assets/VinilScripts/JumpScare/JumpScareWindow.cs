@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class JumpScareWindow : MonoBehaviour
 {
-     [SerializeField] private Animator ghostAnimator;
-
-    [SerializeField] private GameObject gm;
-
+    [SerializeField] GameObject doorGhost;
+    [SerializeField] GameObject tvTrigger;
     private bool hasPlayed = false;
 
-   // public AudioClip jumpscareSound;
-    private void Start()
-    {
-        gm.SetActive(false);
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !hasPlayed)
         {
-            
-            ghostAnimator.SetTrigger("Activate");
-
+            doorGhost.SetActive(true);
+            doorGhost.GetComponent<Animator>().SetTrigger("Activate");            
            
-
             hasPlayed = true;
+            Invoke("DestroySelfAndGhost", 6f);
         }
     }
 
-
+    void DestroySelfAndGhost()
+    {
+        Destroy(doorGhost);
+        tvTrigger.SetActive(true);
+        Destroy(this.gameObject);
+    }
 }

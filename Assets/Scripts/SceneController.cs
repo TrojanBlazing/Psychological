@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
   public static SceneController instance;
+    [SerializeField] GameObject Player;
     [SerializeField] Animator sceneAnimator;
     [SerializeField] Canvas SceneTransitionCanvas;
     private void Awake()
@@ -23,6 +24,7 @@ public class SceneController : MonoBehaviour
 
     public void NextLevel()
     {
+        Player.GetComponent<CharacterController>().enabled = false;
         SceneTransitionCanvas.sortingOrder = 1;
         StartCoroutine(LoadLevel());
     }
