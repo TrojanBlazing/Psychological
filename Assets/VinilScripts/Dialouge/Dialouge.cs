@@ -10,7 +10,7 @@ public class Dialouge : MonoBehaviour
     
    
     [SerializeField]
-    GameObject ghostTrigger;
+    GameObject NextSequenceTrigger;
     [SerializeField]
     private GameObject text;
     //[SerializeField] private string dialouge = "Let me Check on Varun";
@@ -26,17 +26,20 @@ public class Dialouge : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
-        text.SetActive(true);
-        AudioManager.instance.SetDiaolgue(dialogueNumber);
-        ghostTrigger.SetActive(true);
-        StartCoroutine(TextDisable());
+        if (other.gameObject.CompareTag("Player"))
+        {
+            text.SetActive(true);
+           
+            NextSequenceTrigger.SetActive(true);
+            StartCoroutine(TextDisable());
+        }
     }
     internal void TriggerDialogue()
     {
        
             text.SetActive(true);
-        AudioManager.instance.SetDiaolgue(dialogueNumber);
+            AudioManager.instance.SetDiaolgue(dialogueNumber);
+           NextSequenceTrigger.SetActive(true) ;
             StartCoroutine(TextDisable());
            
         }
@@ -45,10 +48,7 @@ public class Dialouge : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         text.SetActive(false);
-       /* if (BabySnoreTrigger != null)
-        {
-            BabySnoreTrigger.SetActive(true);
-        }*/
+      
         Destroy(this.gameObject); 
     }
 

@@ -8,13 +8,6 @@ public class InterDisable : MonoBehaviour
 {
     [SerializeField]
     private GameObject door;
-
-    [SerializeField]
-    private GameObject Window;
-
-    [SerializeField]
-    private GameObject Act;
-
     [SerializeField]
     private GameObject text;
     //[SerializeField] private string dialouge = "Yea hes asleep";
@@ -31,12 +24,8 @@ public class InterDisable : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-
             text.SetActive(true);
-            Window.gameObject.SetActive(true);
-
             StartCoroutine(TextDisable());
-
         }
     }
     IEnumerator TextDisable()
@@ -44,7 +33,7 @@ public class InterDisable : MonoBehaviour
         yield return new WaitForSeconds(timer);
         text.SetActive(false);
         door.gameObject.SetActive(true);
-        Destroy(Act);
+        Destroy(this.gameObject);
     }
 
 }

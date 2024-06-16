@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{bcbee6ce-2205-48a8-9111-60489e1f2f7a}">
+		<property name="assetPath">
+			<value>door-knock-47175.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.71999999999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{32a087bd-392f-4cda-b622-5018697076ac}</destination>
+		</relationship>
+	</object>
+</objects>

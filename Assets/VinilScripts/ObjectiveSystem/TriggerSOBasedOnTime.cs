@@ -35,8 +35,7 @@ public class TriggerSOBasedOnTime : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(gameTime);
-        Debug.Log(stopTimer);
+        
         if(gameTime >endTime)
         {
             
