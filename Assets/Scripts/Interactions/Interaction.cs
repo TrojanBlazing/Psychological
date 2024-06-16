@@ -25,10 +25,9 @@ public class Interaction : MonoBehaviour
 
     void Start()
     {
+        interactText.SetActive(true);
         playerInputAction = new PlayerInputAction();
         playerInputAction.PlayerMovement.Enable();
-      
-      
     }
   
 

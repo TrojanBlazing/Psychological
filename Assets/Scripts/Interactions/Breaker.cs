@@ -11,21 +11,6 @@ public class Breaker : Interactable
     {
         lightsOn = true;
     }
-    internal void ToggleLights()
-    {
-        if(lightsOn)
-        {
-            lights.SetActive(false);
-            lightsOn = false;
-        }
-        else if(!lightsOn) 
-        {
-            lights.SetActive(true);
-            lightsOn = true;
-        }
-
-    }
-
     protected override void Interact()
     {
         base.Interact();

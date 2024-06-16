@@ -4,7 +4,6 @@ using UnityEngine.Audio;
 using UnityEngine;
 using System;
 using FMODUnity;
-using FMOD;
 using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
@@ -20,7 +19,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance { get; private set; }
     private void Awake()
     {
-
+       
         if (instance == null)
         {
             instance = this;
@@ -35,12 +34,13 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        //CreateAmbienceInstance(FmodEvents.instance.Ambience);
+       
+        //CreateAmbienceInstance(FmodEvents.instance.Rain);
         //CreateMusicInstance(FmodEvents.instance.Music);
         CreateDialogueInstance(FmodEvents.instance.Dialogue);
         CreateRandomSFXInstance(FmodEvents.instance.RandomSFX);
+        
     }
-
     public void PlayOneShotOnPlayer(EventReference sound) 
     {
     RuntimeManager.PlayOneShot(sound , Player.transform.position);
@@ -54,6 +54,14 @@ public class AudioManager : MonoBehaviour
     void CreateAmbienceInstance(EventReference ambience)
     {
         ambienceInstance = CreateEventInstance(ambience);
+        ambienceInstance.start();
+        
+    }
+
+    public void SetAmbienceParameter(string parameter, float value) 
+    {
+        ambienceInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        ambienceInstance.setParameterByName(parameter, value);
         ambienceInstance.start();
     }
 

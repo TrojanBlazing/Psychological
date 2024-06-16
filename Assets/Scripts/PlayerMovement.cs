@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (CanMove)
+        if (CanMove && characterController != null)
         {
             HandleMovement();
              HandleMouse();
@@ -212,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
 
         void HandleJump(InputAction.CallbackContext context)
         {
-        if (canJump)
+        if (canJump && characterController !=null)
         {
             if (characterController.isGrounded)
             {

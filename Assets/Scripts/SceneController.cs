@@ -6,25 +6,32 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
   public static SceneController instance;
-    [SerializeField] GameObject Player;
+     GameObject Player;
     [SerializeField] Animator sceneAnimator;
     [SerializeField] Canvas SceneTransitionCanvas;
     private void Awake()
     {
+        
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+           
         }
         else
         {
             Destroy(gameObject);
         }
+
+        Player = GameObject.Find("Player");
     }
 
     public void NextLevel()
     {
-        Player.GetComponent<CharacterController>().enabled = false;
+        if (Player != null)
+        {
+            Player.GetComponent<CharacterController>().enabled = false;
+        }
+        //Getting the transition canvas in front
         SceneTransitionCanvas.sortingOrder = 1;
         StartCoroutine(LoadLevel());
     }

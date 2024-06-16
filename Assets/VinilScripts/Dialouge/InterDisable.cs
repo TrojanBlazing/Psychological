@@ -16,6 +16,7 @@ public class InterDisable : MonoBehaviour
 
     private void Start()
     {
+        
         text.SetActive(false);
         door.gameObject.SetActive(false);
     }

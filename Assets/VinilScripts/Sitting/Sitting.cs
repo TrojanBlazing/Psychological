@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Sitting : MonoBehaviour
+public class Sitting : Interactable
 {
     [SerializeField] GameObject playerStand;
     [SerializeField] GameObject playerSit;
@@ -19,12 +19,12 @@ public class Sitting : MonoBehaviour
     PlayerInputAction pa;
     private InputAction interactAction;
 
-    private void Awake()
+  /*  private void Awake()
     {
-        pa = new PlayerInputAction();
-    }
+       // pa = new PlayerInputAction();
+    }*/
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         pa.PlayerMovement.Enable();
         interactAction = pa.PlayerMovement.Interact;
@@ -36,14 +36,14 @@ public class Sitting : MonoBehaviour
     {
         interactAction.performed -= OnInteractPerformed;
         pa.PlayerMovement.Disable();
-    }
+    }*/
 
-    void Update()
+   /* void Update()
     {
-        RaycastForInteraction();
-        SitOrStand();
+        //RaycastForInteraction();
+        //SitOrStand();
     }
-
+*/
     private void RaycastForInteraction()
     {
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
@@ -64,7 +64,7 @@ public class Sitting : MonoBehaviour
         }
     }
 
-    private void OnInteractPerformed(InputAction.CallbackContext context)
+  /*  private void OnInteractPerformed(InputAction.CallbackContext context)
     {
         if (IsInteract && !IsSitting)
         {
@@ -74,7 +74,7 @@ public class Sitting : MonoBehaviour
         {
             StandUp();
         }
-    }
+    }*/
 
     private void SitOrStand()
     {
@@ -89,7 +89,7 @@ public class Sitting : MonoBehaviour
 
     private void SitDown()
     {
-        sofaInteractText.text = standTextString;
+       // sofaInteractText.text = standTextString;
         playerSit.SetActive(true);
         IsSitting = true;
         playerStand.SetActive(false);
@@ -97,9 +97,24 @@ public class Sitting : MonoBehaviour
 
     private void StandUp()
     {
-        sofaInteractText.text = sitTextString;
+       // sofaInteractText.text = sitTextString;
         playerSit.SetActive(false);
         playerStand.SetActive(true);
         IsSitting = false;
+    }
+
+    protected override void Interact()
+    {
+        base.Interact();
+        if (!IsSitting)
+        {
+            SitDown();
+        }
+        else if (IsSitting)
+        {
+            StandUp();
+        }
+
+
     }
 }

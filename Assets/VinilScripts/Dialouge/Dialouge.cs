@@ -15,7 +15,7 @@ public class Dialouge : MonoBehaviour
     private GameObject text;
     //[SerializeField] private string dialouge = "Let me Check on Varun";
 
-    [SerializeField] private float timer = 3f;
+    [SerializeField] private float timer = 5f;
 
     [SerializeField] DialoguesList dialogueNumber;
     private void Start()
