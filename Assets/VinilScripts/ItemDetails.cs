@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewItemDetails", menuName = "Examine System/Item Details")]
-public class ItemDetails : ScriptableObject
+public class ItemDetails : MonoBehaviour
 {
     public Sprite itemSprite;
     public string itemDescription;

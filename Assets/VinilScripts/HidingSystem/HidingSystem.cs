@@ -1,16 +1,14 @@
-using UnityEditor.Build;
 using UnityEngine;
 
 public class HidingSystem : MonoBehaviour
 {
     public float rayDistance = 2.0f;
     private bool isHiding = false;
-
     private PlayerMovement playerController;
     private Camera playerCamera;
     private GameObject currentHidingSpot;
-   [SerializeField] private Animator anim;
-     [SerializeField]private  Animator anime;
+    //[SerializeField]
+   // private Animator anim;
 
  
     private Vector3 originalPosition;
@@ -99,15 +97,13 @@ public class HidingSystem : MonoBehaviour
             originalRotation = transform.rotation;
 
 
-            anim.SetTrigger("Open");
+         
             transform.position = hidingPosition.position;
             transform.rotation = hidingPosition.rotation;
+            
 
-
-            anime.SetTrigger("In");
             isHiding = true;
             currentHidingSpot = hidingSpot;
-            
         }
         else
         {
@@ -129,13 +125,11 @@ public class HidingSystem : MonoBehaviour
         
         currentHidingSpot = null;
 
-        anim.SetTrigger("Close");
+       
         transform.position = originalPosition;
         transform.rotation = originalRotation;
-
-
-        anime.SetTrigger("Out");
-        isHiding = false;
       
+
+        isHiding = false;
     }
 }
