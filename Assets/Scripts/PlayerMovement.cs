@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -76,8 +77,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Light playerPointLight;
     [SerializeField] float crouchPlayerLightIntensity;
     float originalPlayerLightIntensity;
+
+    //FMOD instance audio manager
+    EventInstance playerFootsteps;
     private void Start()
     {
+
+        playerFootsteps = AudioManager.instance.CreateEventInstance(FmodEvents.instance.Footsteps);
         if (playerPointLight != null)
         {
             originalPlayerLightIntensity = playerPointLight.intensity;
@@ -166,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
             ApplyMovement();
         }
 
-       
+        
         }
 
     
@@ -297,14 +303,28 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, playerInputAction.PlayerMovement.Look.ReadValue<Vector2>().x * lookSpeedX, 0);
         }
 
-        void ApplyMovement()
-        {
+    void ApplyMovement()
+    {
 
+        if (moveDirection.x != 0 && moveDirection.z!=0 && characterController.isGrounded)
+        {
+            PLAYBACK_STATE pLAYBACK_STATE;
+            playerFootsteps.getPlaybackState(out pLAYBACK_STATE);
+            if (pLAYBACK_STATE.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerFootsteps.start();
+            }
+        }
+        else
+        {
+            playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+        }
+       
             if (!characterController.isGrounded)
             {
                 moveDirection.y -= gravity * Time.deltaTime;
             }
-
+             
             characterController.Move(moveDirection * Time.deltaTime);
          
         }

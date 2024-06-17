@@ -8,8 +8,6 @@ using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
-   
-
     List<EventInstance> eventInstances;
     [SerializeField] GameObject Player;
     EventInstance ambienceInstance;
@@ -34,8 +32,8 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-       
-        //CreateAmbienceInstance(FmodEvents.instance.Rain);
+        
+        CreateAmbienceInstance(FmodEvents.instance.Rain);
         //CreateMusicInstance(FmodEvents.instance.Music);
         CreateDialogueInstance(FmodEvents.instance.Dialogue);
         CreateRandomSFXInstance(FmodEvents.instance.RandomSFX);
@@ -54,13 +52,15 @@ public class AudioManager : MonoBehaviour
     void CreateAmbienceInstance(EventReference ambience)
     {
         ambienceInstance = CreateEventInstance(ambience);
+        ambienceInstance.setParameterByName("Rain_Intensity" , 1);
+        ambienceInstance.setParameterByName("RainDampness" , 1);
         ambienceInstance.start();
         
     }
 
     public void SetAmbienceParameter(string parameter, float value) 
     {
-        ambienceInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        
         ambienceInstance.setParameterByName(parameter, value);
         ambienceInstance.start();
     }
