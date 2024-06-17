@@ -80,10 +80,16 @@ public class PlayerMovement : MonoBehaviour
 
     //FMOD instance audio manager
     EventInstance playerFootsteps;
+
+    //testbool
+    [SerializeField]
+    private bool testbool;
     private void Start()
     {
-
-        playerFootsteps = AudioManager.instance.CreateEventInstance(FmodEvents.instance.Footsteps);
+        if (testbool)
+        {
+            playerFootsteps = AudioManager.instance.CreateEventInstance(FmodEvents.instance.Footsteps);
+        }
         if (playerPointLight != null)
         {
             originalPlayerLightIntensity = playerPointLight.intensity;

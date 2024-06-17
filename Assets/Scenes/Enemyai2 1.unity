@@ -597,6 +597,7 @@ MonoBehaviour:
   InventoryUI: {fileID: 0}
   playerPointLight: {fileID: 0}
   crouchPlayerLightIntensity: 0
+  testbool: 0
 --- !u!108 &1905269097497266902
 Light:
   m_ObjectHideFlags: 0

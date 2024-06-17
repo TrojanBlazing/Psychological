@@ -115,12 +115,12 @@ public class HidingSystem : MonoBehaviour
             originalRotation = transform.rotation;
 
 
-            anim.SetTrigger("Open");
+           // anim.SetTrigger("Open");
 
 
 
          
-           // anim.SetTrigger("Open");
+           
 
 
             transform.position = hidingPosition.position;
@@ -129,10 +129,9 @@ public class HidingSystem : MonoBehaviour
 
 
 
-            anime.SetTrigger("In");
+           // anime.SetTrigger("In");
 
-            //anime.SetTrigger("In");
-
+            
 
             isHiding = true;
             currentHidingSpot = hidingSpot;
@@ -152,20 +151,20 @@ public class HidingSystem : MonoBehaviour
 
         playerController.enabled = true;
         currentHidingSpot = null;
-       // anim.SetTrigger("Close");
+        //anim.SetTrigger("Close");
 
        
         transform.position = originalPosition;
         transform.rotation = originalRotation;
 
 
-        anime.SetTrigger("Out");
+       // anime.SetTrigger("Out");
 
       
 
 
 
-       // anime.SetTrigger("Out");
+       
 
         isHiding = false;
     }
