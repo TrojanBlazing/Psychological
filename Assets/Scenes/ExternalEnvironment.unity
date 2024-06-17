@@ -1155,11 +1155,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261438692}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &280056182 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1025752709358847000, guid: 5cedc81ef6dc4c144a89c08ce352f321, type: 3}
-  m_PrefabInstance: {fileID: 734841539}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &358039643
 GameObject:
   m_ObjectHideFlags: 0
@@ -14548,6 +14543,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebe8ba4595e1c5428a37734d452f576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+=======
+  Player: {fileID: 0}
+>>>>>>> Stashed changes
   sceneAnimator: {fileID: 1981607795}
   SceneTransitionCanvas: {fileID: 981651668}
 --- !u!1 &1315277578
@@ -15580,11 +15579,11 @@ MonoBehaviour:
     Path: event:/Dialogues
   <RandomSFX>k__BackingField:
     Guid:
-      Data1: -462489353
-      Data2: 1298820331
-      Data3: -254841684
-      Data4: -1700850638
-    Path: event:/RandomSFX
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1636264618
 GameObject:
   m_ObjectHideFlags: 0
@@ -15733,7 +15732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2241503b5985142b971f8150cc598f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSequenceTrigger: {fileID: 280056182}
+  NextSequenceTrigger: {fileID: 0}
   text: {fileID: 7428029542554365785}
   timer: 1
   dialogueNumber: 0
@@ -18085,7 +18084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &924421319660378326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20158,7 +20157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &5115386513866332673
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21972,7 +21971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e229e06a2e66c4c9eeddfbab5c0c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TV: {fileID: 6363227665829774983}
+  TV: {fileID: 0}
   trigger: {fileID: 9097165416693108467}
 --- !u!1 &7771009598929396697
 GameObject:

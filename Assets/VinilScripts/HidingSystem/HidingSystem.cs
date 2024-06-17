@@ -9,6 +9,11 @@ public class HidingSystem : MonoBehaviour
     private Camera playerCamera;
     private GameObject currentHidingSpot;
 
+<<<<<<< Updated upstream
+=======
+    
+
+>>>>>>> Stashed changes
     [SerializeField] private Animator anim;
     [SerializeField] private Animator anime;
 
@@ -113,14 +118,25 @@ public class HidingSystem : MonoBehaviour
             originalPosition = transform.position;
             originalRotation = transform.rotation;
 
+<<<<<<< Updated upstream
             anim.SetTrigger("Open");
+=======
+
+
+         
+           // anim.SetTrigger("Open");
+>>>>>>> Stashed changes
 
             transform.position = hidingPosition.position;
             transform.rotation = hidingPosition.rotation;
             
 
 
+<<<<<<< Updated upstream
             anime.SetTrigger("In");
+=======
+            //anime.SetTrigger("In");
+>>>>>>> Stashed changes
 
             isHiding = true;
             currentHidingSpot = hidingSpot;
@@ -140,13 +156,23 @@ public class HidingSystem : MonoBehaviour
 
         playerController.enabled = true;
         currentHidingSpot = null;
+       // anim.SetTrigger("Close");
 
        
         transform.position = originalPosition;
         transform.rotation = originalRotation;
+<<<<<<< Updated upstream
 
 
         anime.SetTrigger("Out");
+=======
+
+      
+
+
+
+       // anime.SetTrigger("Out");
+>>>>>>> Stashed changes
 
         isHiding = false;
     }
