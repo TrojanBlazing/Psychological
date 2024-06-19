@@ -6,29 +6,51 @@ public class FlashLightPickUp : MonoBehaviour
 {
     public GameObject pickupText;
     public GameObject FlashOn;
+    public float interactionDistance = 5.0f;
+
+    private bool interactable;
+
     void Start()
     {
         FlashOn.SetActive(false);
         pickupText.SetActive(false);
     }
 
-
-    private void OnTriggerStay(Collider other)
+    void Update()
     {
-        if (other.gameObject.tag == "Player")
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            pickupText.SetActive(true);
-            if (Input.GetKey(KeyCode.E))
+            if (hit.collider.CompareTag("FlashlightPickup"))
             {
-                this.gameObject.SetActive(false);
-                FlashOn.SetActive(true);
+                pickupText.SetActive(true);
+                interactable = true;
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    PickUpFlashlight();
+                }
+            }
+            else
+            {
                 pickupText.SetActive(false);
+                interactable = false;
             }
         }
+        else
+        {
+            pickupText.SetActive(false);
+            interactable = false;
+        }
     }
-    private void OnTriggerExit(Collider other)
+
+    void PickUpFlashlight()
     {
-        pickupText.SetActive(false);
+        gameObject.SetActive(false); 
+        FlashOn.SetActive(true);    
+        pickupText.SetActive(false); 
     }
 }
 

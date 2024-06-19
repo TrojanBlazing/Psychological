@@ -21,6 +21,7 @@ TagManager:
   - HidingPos
   - HidingSpot
   - GhostTrigger
+  - FlashlightPickup
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Ground
   - Pick
   - VHS
-  - 
+  - Latern
   - 
   - 
   - 

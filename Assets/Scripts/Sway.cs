@@ -28,4 +28,4 @@ public class Sway : MonoBehaviour
         transform.localPosition = Vector3.Lerp(transform.localPosition, finalPosition + initialPosition, Time.deltaTime * smoothAmount);
     }
 }
-       
+  
