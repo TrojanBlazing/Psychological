@@ -11,7 +11,7 @@ public enum DialoguesList
 public enum RandomSFX
 {
 
-    VarunSnore = 0,
-    DoorKnock = 1,
-    DoorGhost = 2
+   
+    DoorKnock = 0,
+    DoorGhost = 1
 }

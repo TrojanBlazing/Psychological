@@ -190,13 +190,10 @@
 			<value>cutoff</value>
 		</property>
 		<property name="initialValue">
-			<value>-100</value>
+			<value>91.1111145</value>
 		</property>
 		<property name="releaseTime">
-			<value>551.282104</value>
-		</property>
-		<property name="finalValue">
-			<value>-100</value>
+			<value>13205.1328</value>
 		</property>
 	</object>
 	<object class="Automator" id="{88321c82-7d28-43a1-b905-8c99974eb18d}">
@@ -212,10 +209,13 @@
 			<value>gain</value>
 		</property>
 		<property name="initialValue">
-			<value>-80</value>
+			<value>-14.8444443</value>
+		</property>
+		<property name="releaseTime">
+			<value>8269.22949</value>
 		</property>
 		<property name="finalValue">
-			<value>-80</value>
+			<value>-11.955555</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{bf7889e7-6581-498a-b9c6-8d7302ae2399}">

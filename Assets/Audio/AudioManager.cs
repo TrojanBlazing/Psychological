@@ -74,7 +74,7 @@ public class AudioManager : MonoBehaviour
     void CreateRandomSFXInstance(EventReference SFX)
     {
         randomSFXInstance = CreateEventInstance(SFX);
-
+      
     }
     void CreateMusicInstance(EventReference music)
     {

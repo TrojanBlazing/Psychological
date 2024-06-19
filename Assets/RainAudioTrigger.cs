@@ -9,10 +9,12 @@ public class RainAudioTrigger : MonoBehaviour
     [SerializeField] float parameterValueWhenEntered;
     [SerializeField] float parameterValueWhenExited;
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Player"))
         {
+           
             AudioManager.instance.SetAmbienceParameter(parameterNameForIntensity, parameterValueWhenEntered);
             AudioManager.instance.SetAmbienceParameter(parameterNameForDampness , parameterValueWhenEntered);
         }

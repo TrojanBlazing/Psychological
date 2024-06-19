@@ -16,10 +16,9 @@
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>3</value>
+			<value>2</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>VarunSnore</value>
 			<value>DoorKnock</value>
 			<value>DoorGhost</value>
 		</property>

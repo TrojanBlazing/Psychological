@@ -8,7 +8,7 @@ public class JumpScareWindow : MonoBehaviour
     [SerializeField] GameObject tvTrigger;
     private bool hasPlayed = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player") && !hasPlayed)
         {
