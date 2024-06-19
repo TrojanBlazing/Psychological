@@ -30,6 +30,8 @@ public class EnemyAI_1 : MonoBehaviour
     [SerializeField] float enemyRevolveTime;
 
     private float angle = 0f;
+    //ref to hiding system for last player pos
+    [SerializeField] HidingSystem hidingSystem;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -41,6 +43,7 @@ public class EnemyAI_1 : MonoBehaviour
   
     void Update()
     {
+        
         
        playerSpeed = new Vector3(playerMovement.moveDirection.x , 0 , playerMovement.moveDirection.z);
         isPlayerSprinting = playerMovement.isSprinting;
@@ -107,35 +110,45 @@ public class EnemyAI_1 : MonoBehaviour
             agent.speed = 10f;
             if ((transform.position - walkPoint).magnitude < 8f)
             {
-                if (isPlayerSprinting)
+                if (isPlayerSprinting || !hidingSystem.IsHiding)
                 {
                     agent.speed = 25f;
                     KillState();
 
                 }
-                if (playerSpeed.x < 1f && playerSpeed.z < 1f)
+                if (hidingSystem.IsHiding)
                 {
                     // agent.speed = 5f;
                     inRevolveState = true;
                     RevolveState();
                 }
+               
             }
         }
     }
 
     void RevolveState()
-    {   
-        agent.enabled = false;  
-        transform.RotateAround(Player.transform.position , Vector3.up , rotateSpeed * Time.deltaTime);
-        enemyRevolveTimer += Time.deltaTime;
-        if(enemyRevolveTimer  > enemyRevolveTime)
+    {
+
+        if (hidingSystem.IsHiding)
         {
-            agent.enabled = true;   
-            agent.Warp(transform.position);
-            enemyRevolveTimer = 0;
-            inRevolveState = false;
-            playerSprintTime = 0;
-            objectFell = false;
+            agent.enabled = false;
+            transform.RotateAround(Player.transform.position, Vector3.up, rotateSpeed * Time.deltaTime);
+            enemyRevolveTimer += Time.deltaTime;
+            if (enemyRevolveTimer > enemyRevolveTime)
+            {
+                agent.enabled = true;
+                agent.Warp(transform.position);
+                enemyRevolveTimer = 0;
+                inRevolveState = false;
+                playerSprintTime = 0;
+                objectFell = false;
+            }
+        }
+
+        else
+        {
+            KillState();
         }
     }
 

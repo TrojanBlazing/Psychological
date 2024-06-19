@@ -380,6 +380,7 @@ MonoBehaviour:
   distance: 2
   rotateSpeed: 30
   enemyRevolveTime: 8
+  hidingSystem: {fileID: 2011522869}
 --- !u!82 &348515140
 AudioSource:
   m_ObjectHideFlags: 0
@@ -535,7 +536,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4164407222386742520, guid: 8b4af6c36298d4a4ab939eaf5cb6a799, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2011522869}
   m_SourcePrefab: {fileID: 100100000, guid: 8b4af6c36298d4a4ab939eaf5cb6a799, type: 3}
 --- !u!1 &877851325
 GameObject:
@@ -1467,6 +1471,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4164407222386742520, guid: 8b4af6c36298d4a4ab939eaf5cb6a799, type: 3}
   m_PrefabInstance: {fileID: 550433304}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2011522869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011522861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9098be1319cb13488e5ae994b4d283e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 2
+  anim: {fileID: 0}
+  anime: {fileID: 0}
 --- !u!1 &2029217023
 GameObject:
   m_ObjectHideFlags: 0

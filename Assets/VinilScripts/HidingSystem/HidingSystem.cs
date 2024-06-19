@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class HidingSystem : MonoBehaviour
 {
     public float rayDistance = 2.0f;
-    private bool isHiding = false;
+    public bool IsHiding { get; private set; }
     private PlayerMovement playerController;
     private Camera playerCamera;
     private GameObject currentHidingSpot;
@@ -13,14 +13,15 @@ public class HidingSystem : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private Animator anime;
 
-
+    
     private Vector3 originalPosition;
+    public Vector3 LastPlayerPos {  get; private set; }
     private Quaternion originalRotation;
 
     PlayerInputAction pa;
     private InputAction interactAction;
 
-    void Start()
+    void Awake()
     {
         playerController = GetComponent<PlayerMovement>();
         playerCamera = Camera.main;
@@ -50,7 +51,8 @@ public class HidingSystem : MonoBehaviour
     {
         if (context.performed)
         {
-            if (isHiding)
+           
+            if (IsHiding)
             {
                 ExitHidingSpot();
             }
@@ -81,6 +83,7 @@ public class HidingSystem : MonoBehaviour
                     }
                 }
             }
+            Debug.Log("is hiding "+ IsHiding);
         }
     }
 
@@ -101,7 +104,7 @@ public class HidingSystem : MonoBehaviour
 
     void EnterHidingSpot(GameObject hidingSpot)
     {
-        if (isHiding)
+        if (IsHiding)
         {
             return;
         }
@@ -114,7 +117,7 @@ public class HidingSystem : MonoBehaviour
             originalPosition = transform.position;
             originalRotation = transform.rotation;
 
-
+            LastPlayerPos = originalPosition;
            // anim.SetTrigger("Open");
 
 
@@ -133,7 +136,7 @@ public class HidingSystem : MonoBehaviour
 
             
 
-            isHiding = true;
+            IsHiding = true;
             currentHidingSpot = hidingSpot;
         }
         else
@@ -144,7 +147,7 @@ public class HidingSystem : MonoBehaviour
 
     void ExitHidingSpot()
     {
-        if (!isHiding || currentHidingSpot == null)
+        if (!IsHiding || currentHidingSpot == null)
         {
             return;
         }
@@ -166,6 +169,6 @@ public class HidingSystem : MonoBehaviour
 
        
 
-        isHiding = false;
+        IsHiding = false;
     }
 }
