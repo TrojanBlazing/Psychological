@@ -15,12 +15,29 @@ public class AudioManager : MonoBehaviour
     EventInstance dialogueInstance;
     EventInstance randomSFXInstance;
     public static AudioManager instance { get; private set; }
+
+    [Header("Volume")]
+    [Range(0, 1)]
+
+    public float masterVolume = 1;
+    [Range(0, 1)]
+    public float musicVolume = 1;
+    [Range(0, 1)]
+    public float ambienceVolume = 1;
+    [Range(0, 1)]
+    public float SFXVolume = 1;
+
+    internal Bus masterBus;
+    Bus musicBus;
+    Bus ambienceBus;
+    Bus sfxBus;
     private void Awake()
     {
        
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -28,8 +45,26 @@ public class AudioManager : MonoBehaviour
         }
 
         eventInstances = new List<EventInstance>();
-      
+
+        masterBus = RuntimeManager.GetBus("bus:/");
+        musicBus = RuntimeManager.GetBus("bus:/Music");
+        sfxBus = RuntimeManager.GetBus("bus:/SFX");
+        ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
+
+        masterVolume = PlayerPrefs.GetFloat("MasterVolume");
+        SFXVolume = PlayerPrefs.GetFloat("SFXVolume");
+        ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolume");
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume");
     }
+
+    public void UpdateMaster()
+    { masterVolume = PlayerPrefs.GetFloat("MasterVolume"); masterBus.setVolume(masterVolume);}
+
+    public void UpdateMusic() { musicVolume = PlayerPrefs.GetFloat("MusicVolume"); musicBus.setVolume(musicVolume); }
+
+    public void UpdateAmbience() { ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolume"); ambienceBus.setVolume(ambienceVolume); }
+
+    public void UpdateSFX() { SFXVolume = PlayerPrefs.GetFloat("SFXVolume"); sfxBus.setVolume(SFXVolume); }
     private void Start()
     {
         
@@ -37,11 +72,16 @@ public class AudioManager : MonoBehaviour
         //CreateMusicInstance(FmodEvents.instance.Music);
         CreateDialogueInstance(FmodEvents.instance.Dialogue);
         CreateRandomSFXInstance(FmodEvents.instance.RandomSFX);
+
+
         
     }
     public void PlayOneShotOnPlayer(EventReference sound) 
     {
-    RuntimeManager.PlayOneShot(sound , Player.transform.position);
+        if (Player != null)
+        {
+            RuntimeManager.PlayOneShot(sound, Player.transform.position);
+        }
     }
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {

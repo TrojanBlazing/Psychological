@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 public class SceneController : MonoBehaviour
 {
@@ -15,7 +19,8 @@ public class SceneController : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-           
+            DontDestroyOnLoad(gameObject);
+
         }
         else
         {
@@ -41,5 +46,14 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
         sceneAnimator.SetTrigger("Start");
+    }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
+#if UNITY_EDITOR
+        // Stop playing the scene
+        EditorApplication.isPlaying = false;
+#endif
     }
 }

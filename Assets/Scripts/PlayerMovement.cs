@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (CanMove && characterController != null && characterController.enabled)
+        if (CanMove && characterController != null && characterController.enabled && !PauseManager.instance.isPaused)
         {
             HandleMovement();
              HandleMouse();
