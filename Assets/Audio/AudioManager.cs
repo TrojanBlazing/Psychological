@@ -9,7 +9,7 @@ using FMOD.Studio;
 public class AudioManager : MonoBehaviour
 {
     List<EventInstance> eventInstances;
-    [SerializeField] GameObject Player;
+    GameObject Player;
     EventInstance ambienceInstance;
     EventInstance musicInstance;
     EventInstance dialogueInstance;
@@ -67,7 +67,7 @@ public class AudioManager : MonoBehaviour
     public void UpdateSFX() { SFXVolume = PlayerPrefs.GetFloat("SFXVolume"); sfxBus.setVolume(SFXVolume); }
     private void Start()
     {
-        
+
         CreateAmbienceInstance(FmodEvents.instance.Rain);
         //CreateMusicInstance(FmodEvents.instance.Music);
         CreateDialogueInstance(FmodEvents.instance.Dialogue);
@@ -78,10 +78,9 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayOneShotOnPlayer(EventReference sound) 
     {
-        if (Player != null)
-        {
-            RuntimeManager.PlayOneShot(sound, Player.transform.position);
-        }
+     
+            RuntimeManager.PlayOneShot(sound, Camera.main.transform.position);
+       
     }
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {

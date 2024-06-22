@@ -24,7 +24,12 @@ namespace SlimUI.ModernMenu{
 			message = gameObject;
 
 			if(isText){
+				if(message.GetComponent<TextMeshPro>())
 				message.GetComponent<TextMeshPro>().color = themeController.textColor;
+				else
+				{
+                    message.GetComponent<TextMeshProUGUI>().color = themeController.textColor;
+                }
 			}
 		}
 	}

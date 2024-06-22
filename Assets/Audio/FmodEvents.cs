@@ -35,10 +35,11 @@ public class FmodEvents : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+           
         }
         else
         {
-            Debug.Log("Multiple instances of "+ this.name);
+            
             Destroy(instance);
         }
     }
