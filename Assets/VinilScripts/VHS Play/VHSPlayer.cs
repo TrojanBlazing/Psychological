@@ -33,17 +33,26 @@ public class playVHS : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, interactionDistance))
+        if (Camera.main != null)
         {
-            if (hit.transform.CompareTag("VHS"))
+
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, interactionDistance))
             {
-                if (!toggle && !vhs.activeSelf)
+                if (hit.transform.CompareTag("VHS"))
                 {
-                    intText.SetActive(true);
-                    interactable = true;
+                    if (!toggle && !vhs.activeSelf)
+                    {
+                        intText.SetActive(true);
+                        interactable = true;
+                    }
+                }
+                else
+                {
+                    intText.SetActive(false);
+                    interactable = false;
                 }
             }
             else
@@ -51,11 +60,6 @@ public class playVHS : MonoBehaviour
                 intText.SetActive(false);
                 interactable = false;
             }
-        }
-        else
-        {
-            intText.SetActive(false);
-            interactable = false;
         }
     }
 

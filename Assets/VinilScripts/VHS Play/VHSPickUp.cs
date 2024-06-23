@@ -33,26 +33,29 @@ public class pickupItem : MonoBehaviour
 
     void Update()
     {
-        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, interactionDistance))
+        if (Camera.main != null)
         {
-            if (hit.transform.CompareTag("Pick"))
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, interactionDistance))
             {
-                intText.SetActive(true);
-                interactable = true;
+                if (hit.transform.CompareTag("Pick"))
+                {
+                    intText.SetActive(true);
+                    interactable = true;
+                }
+                else
+                {
+                    intText.SetActive(false);
+                    interactable = false;
+                }
             }
             else
             {
                 intText.SetActive(false);
                 interactable = false;
             }
-        }
-        else
-        {
-            intText.SetActive(false);
-            interactable = false;
         }
     }
 

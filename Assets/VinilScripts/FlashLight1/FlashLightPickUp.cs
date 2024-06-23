@@ -18,19 +18,28 @@ public class FlashLightPickUp : MonoBehaviour
 
     void Update()
     {
-        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, interactionDistance))
+        if (Camera.main != null)
         {
-            if (hit.collider.CompareTag("FlashlightPickup"))
-            {
-                pickupText.SetActive(true);
-                interactable = true;
 
-                if (Input.GetKeyDown(KeyCode.E))
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, interactionDistance))
+            {
+                if (hit.collider.CompareTag("FlashlightPickup"))
                 {
-                    PickUpFlashlight();
+                    pickupText.SetActive(true);
+                    interactable = true;
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        PickUpFlashlight();
+                    }
+                }
+                else
+                {
+                    pickupText.SetActive(false);
+                    interactable = false;
                 }
             }
             else
@@ -38,11 +47,6 @@ public class FlashLightPickUp : MonoBehaviour
                 pickupText.SetActive(false);
                 interactable = false;
             }
-        }
-        else
-        {
-            pickupText.SetActive(false);
-            interactable = false;
         }
     }
 
