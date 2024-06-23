@@ -80,6 +80,7 @@ namespace SlimUI.ModernMenu{
         [Tooltip("The GameObject holding the Audio Source component for the SWOOSH SOUND when switching to the Settings Screen")]
         public AudioSource swooshSound;
 
+
 		void Start(){
 			CameraObject = transform.GetComponent<Animator>();
 
@@ -277,6 +278,7 @@ namespace SlimUI.ModernMenu{
 					loadingBar.value = 1;
 
 					if (Input.GetKeyDown(userPromptKey)){
+						
 						operation.allowSceneActivation = true;
 					}
                 }else if(operation.progress >= 0.9f && !waitForInput){
@@ -286,5 +288,7 @@ namespace SlimUI.ModernMenu{
 				yield return null;
 			}
 		}
+
+		
 	}
 }

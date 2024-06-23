@@ -13,7 +13,7 @@ public class Sitting : Interactable
 
     [SerializeField] float interactionDistance = 3f; 
 
-    bool IsSitting;
+    bool IsSitting = true;
     bool IsInteract;
 
     PlayerInputAction pa;
@@ -44,7 +44,7 @@ public class Sitting : Interactable
         //SitOrStand();
     }
 */
-    private void RaycastForInteraction()
+    /*private void RaycastForInteraction()
     {
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         RaycastHit hit;
@@ -62,7 +62,7 @@ public class Sitting : Interactable
             sofaInteractText.text = string.Empty;
             IsInteract = false;
         }
-    }
+    }*/
 
   /*  private void OnInteractPerformed(InputAction.CallbackContext context)
     {

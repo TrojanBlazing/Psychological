@@ -5,7 +5,7 @@ using UnityEngine;
 public class FadingScript : MonoBehaviour
 {
     [SerializeField]
-    private float fduration = 4.8f;
+    internal float fduration = 4.8f;
 
     [SerializeField]
     private CanvasGroup canvasGroup;

@@ -33,7 +33,7 @@ public class TriggerScriptableObjective : MonoBehaviour
         }
     }
   
-    void EnableNotification()
+    internal void EnableNotification()
     {
         triggerSOBasedOnTime.TriggerStopTimer();
         objectcollider.enabled = false;

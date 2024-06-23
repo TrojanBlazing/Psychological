@@ -42,7 +42,12 @@ public class Interaction : MonoBehaviour
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 playerUI.UpdateText(interactable.promptMessage);
                 if (playerInputAction.PlayerMovement.Interaction.triggered)
-                {
+                {    
+                    if(gameObject.GetComponent<WakingUpScript>() != null)
+                    {
+                        gameObject.GetComponent<WakingUpScript>().PlayerInteracted();
+                    }
+
                     if (hit.transform.CompareTag("collectables") && inventoryManager != null)
                     {
                         Item item = hit.transform.GetComponent<Item>(); // Assuming collectible object has the Item script attached
