@@ -51,7 +51,10 @@ namespace SlimUI.ModernMenu{
 		
 			// check slider values
 			musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
-			sensitivityXSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("XSensitivity");
+            masterSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MasterVolume");
+            sfxSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("SFXVolume");
+            ambienceSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("AmbienceVolume");
+            sensitivityXSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("XSensitivity");
 			sensitivityYSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("YSensitivity");
 			mouseSmoothSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MouseSmoothing");
 
@@ -180,24 +183,29 @@ namespace SlimUI.ModernMenu{
 		public void MusicSlider (){
 			//PlayerPrefs.SetFloat("MusicVolume", sliderValue);
 			PlayerPrefs.SetFloat("MusicVolume", musicSlider.GetComponent<Slider>().value);
+			AudioManager.instance.UpdateMusic();
 		}
 
         public void MasterSlider()
         {
             //PlayerPrefs.SetFloat("MusicVolume", sliderValue);
             PlayerPrefs.SetFloat("MasterVolume", masterSlider.GetComponent<Slider>().value);
+			AudioManager.instance.UpdateMaster();
         }
 
         public void SFXSlider()
         {
             //PlayerPrefs.SetFloat("MusicVolume", sliderValue);
             PlayerPrefs.SetFloat("SFXVolume", sfxSlider.GetComponent<Slider>().value);
+			AudioManager.instance.UpdateSFX();
         }
 
         public void AmbienceSlider()
         {
             //PlayerPrefs.SetFloat("MusicVolume", sliderValue);
             PlayerPrefs.SetFloat("AmbienceVolume", ambienceSlider.GetComponent<Slider>().value);
+
+			AudioManager.instance.UpdateAmbience();
         }
         public void SensitivityXSlider (){
 			PlayerPrefs.SetFloat("XSensitivity", sliderValueXSensitivity);

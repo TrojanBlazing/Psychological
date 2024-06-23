@@ -13633,6 +13633,10 @@ MonoBehaviour:
   - {fileID: 55809529}
   - {fileID: 358039647}
   - {fileID: 550814361}
+  MasterSlider: {fileID: 5431737114639852574}
+  AmbienceSlider: {fileID: 5677906722739716843}
+  MusicSlider: {fileID: 8274673043406251198}
+  SFXSlider: {fileID: 7746115614839102340}
 --- !u!4 &947165062
 Transform:
   m_ObjectHideFlags: 0
@@ -21049,7 +21053,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3765358363649387439}
+      - m_Target: {fileID: 6471179405194711428, guid: 5619210a20f974149beb2b00dbf3d1ab, type: 3}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: UpdateAmbience
         m_Mode: 1
@@ -23453,7 +23457,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 3765358363649387439}
+        - m_Target: {fileID: 6471179405194711428, guid: 5619210a20f974149beb2b00dbf3d1ab, type: 3}
           m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
           m_MethodName: UpdateSFX
           m_Mode: 1
@@ -24736,7 +24740,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 3765358363649387439}
+        - m_Target: {fileID: 6471179405194711428, guid: 5619210a20f974149beb2b00dbf3d1ab, type: 3}
           m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
           m_MethodName: UpdateAmbience
           m_Mode: 1
@@ -25091,6 +25095,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &2882093028716229861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555829124734335698}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2889264108790536449
 GameObject:
   m_ObjectHideFlags: 0
@@ -25449,7 +25468,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3765358363649387439}
+      - m_Target: {fileID: 6471179405194711428, guid: 5619210a20f974149beb2b00dbf3d1ab, type: 3}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: UpdateSFX
         m_Mode: 1
@@ -26855,22 +26874,6 @@ RectTransform:
   m_AnchoredPosition: {x: 379.5, y: 184}
   m_SizeDelta: {x: 401, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3765358363649387439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8998471009069947134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9d186967081c9a448b172703cd5694d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterVolume: 1
-  musicVolume: 1
-  ambienceVolume: 1
-  SFXVolume: 1
 --- !u!224 &3780069507210625600
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27182,7 +27185,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 3765358363649387439}
+        - m_Target: {fileID: 6471179405194711428, guid: 5619210a20f974149beb2b00dbf3d1ab, type: 3}
           m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
           m_MethodName: UpdateMusic
           m_Mode: 1
@@ -27745,7 +27748,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 3765358363649387439}
+        - m_Target: {fileID: 6471179405194711428, guid: 5619210a20f974149beb2b00dbf3d1ab, type: 3}
           m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
           m_MethodName: UpdateMaster
           m_Mode: 1
@@ -31143,6 +31146,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0.00027425188, y: -119.002014}
   m_SizeDelta: {x: 461, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5555829124734335698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2882093028716229861}
+  - component: {fileID: 7426330387214352833}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!33 &5572589030052894380
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -32351,7 +32371,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3765358363649387439}
+      - m_Target: {fileID: 6471179405194711428, guid: 5619210a20f974149beb2b00dbf3d1ab, type: 3}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: UpdateMaster
         m_Mode: 1
@@ -35559,6 +35579,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7426330387214352833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555829124734335698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d186967081c9a448b172703cd5694d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  ambienceVolume: 1
+  SFXVolume: 1
 --- !u!1 &7428029542554365785
 GameObject:
   m_ObjectHideFlags: 0
@@ -37144,21 +37180,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7855984636571257061}
   m_CullTransparentMesh: 1
---- !u!4 &8101100599150925461
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8998471009069947134}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8137790425015725555
 Transform:
   m_ObjectHideFlags: 0
@@ -38873,23 +38894,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5730872932962514741}
   m_CullTransparentMesh: 0
---- !u!1 &8998471009069947134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8101100599150925461}
-  - component: {fileID: 3765358363649387439}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &9002260452070961234
 GameObject:
   m_ObjectHideFlags: 0
@@ -39560,7 +39564,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3765358363649387439}
+      - m_Target: {fileID: 6471179405194711428, guid: 5619210a20f974149beb2b00dbf3d1ab, type: 3}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: UpdateMusic
         m_Mode: 1
@@ -39890,7 +39894,7 @@ SceneRoots:
   - {fileID: 5598744519145467617}
   - {fileID: 549409357257228911}
   - {fileID: 9027087529624820633}
-  - {fileID: 8101100599150925461}
+  - {fileID: 2882093028716229861}
   - {fileID: 1313353145}
   - {fileID: 1195172677}
   - {fileID: 803290489}
