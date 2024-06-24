@@ -28,6 +28,10 @@ public class FmodEvents : MonoBehaviour
 
     [field: Header("Random SFX")]
     [field: SerializeField] public EventReference RandomSFX { get; private set; }
+
+
+    [field: Header("Clock")]
+    [field: SerializeField] public EventReference Clock { get; private set; }
     public static FmodEvents instance {  get; private set; }
 
     private void Awake()

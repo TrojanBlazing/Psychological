@@ -6,7 +6,7 @@ public class TvTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject TV;
  
-    [SerializeField] private GameObject trigger;
+  
 
     
 
@@ -14,14 +14,14 @@ public class TvTrigger : MonoBehaviour
     void Start()
     {
         TV.SetActive(false);
-        trigger.SetActive(false);
+       
     }
      private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             TV.SetActive(true);
-            trigger.SetActive(true);
+           
            
             isTriggered = true;
            

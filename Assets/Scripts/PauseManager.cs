@@ -111,6 +111,8 @@ public class PauseManager : MonoBehaviour
         playerInput.PlayerMovement.Enable();
         playerInput.PauseHandle.Disable();
         isPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void OnSettingsOpen()

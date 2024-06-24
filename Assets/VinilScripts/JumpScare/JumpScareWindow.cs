@@ -16,6 +16,8 @@ public class JumpScareWindow : MonoBehaviour
             doorGhost.GetComponent<Animator>().SetTrigger("Activate");            
            
             hasPlayed = true;
+
+           gameObject.GetComponent<Collider>().enabled = false;
             Invoke("DestroySelfAndGhost", 6f);
         }
     }

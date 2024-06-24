@@ -14,24 +14,33 @@ public class PlayerSleepingTriggerEvents : MonoBehaviour
     EventInstance clockChimes;
     [SerializeField] GameObject Clock;
     [SerializeField] Animator animator;
+
+    [SerializeField] FadingScript fadingScript;
+    [SerializeField] GameObject PromptTest;
     private void Start()
     {
-        Invoke("TriggerNextSequence" , 10);
+        PromptTest.SetActive(false);
+        StartCoroutine(TriggerSequence());
     }
 
-    void TriggerNextSequence()
+
+    IEnumerator TriggerSequence()
     {
-        Debug.Log("Clock Ding");
-        //clockChimes = AudioManager.instance.CreateEventInstance(FmodEvents.instance.Rain);
-        // AudioManager.instance.PlayOneShot(clockChimes,Clock.transform.position);
+        yield return new WaitForSeconds(10);
+        AudioManager.instance.PlayOneShot(FmodEvents.instance.Clock, transform.position);
+
+        yield return new WaitForSeconds(3);
+        gameObject.GetComponent<Dialouge>().TriggerDialogue();
+
+        yield return new WaitForSeconds(3);
         animator.enabled = true;
 
-        Invoke("SceneTransition", 11f);
+        yield return new WaitForSeconds(11f);
+        fadingScript.FadeOut();
 
-    }
-
-    void SceneTransition()
-    {
+        yield return new WaitForSeconds(5);
         SceneController.instance.NextLevel();
+
     }
+  
 }

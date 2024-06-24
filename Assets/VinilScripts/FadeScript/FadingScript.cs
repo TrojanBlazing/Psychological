@@ -26,10 +26,14 @@ public class FadingScript : MonoBehaviour
         }
     }
 
+
+    //black to visible
     public void FadeIn()
     {
         StartCoroutine(FadeCanavasGroup( canvasGroup,canvasGroup.alpha,0,fduration));
     }
+
+    // screen normal to black
     public void FadeOut()
     {
         StartCoroutine(FadeCanavasGroup(canvasGroup, canvasGroup.alpha, 1, fduration));

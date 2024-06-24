@@ -166,18 +166,35 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (CanMove && characterController != null && characterController.enabled && !PauseManager.instance.isPaused)
+
+        if (PauseManager.instance)
         {
-            HandleMovement();
-             HandleMouse();
-
-            if (canHeadBob)
+            if (CanMove && characterController != null && characterController.enabled && !PauseManager.instance.isPaused)
             {
-                HeadBob();
-            }
-            ApplyMovement();
-        }
+                HandleMovement();
+                HandleMouse();
 
+                if (canHeadBob)
+                {
+                    HeadBob();
+                }
+                ApplyMovement();
+            }
+        }
+        else
+        {
+            if (CanMove && characterController != null && characterController.enabled)
+            {
+                HandleMovement();
+                HandleMouse();
+
+                if (canHeadBob)
+                {
+                    HeadBob();
+                }
+                ApplyMovement();
+            }
+        }
         
         }
 

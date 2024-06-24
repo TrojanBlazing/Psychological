@@ -13,11 +13,12 @@ public class Dialouge : MonoBehaviour
     GameObject NextSequenceTrigger;
     [SerializeField]
     private GameObject text;
-    //[SerializeField] private string dialouge = "Let me Check on Varun";
+    [SerializeField] private string dialouge;
 
     [SerializeField] private float timer = 5f;
 
     [SerializeField] DialoguesList dialogueNumber;
+    [SerializeField] bool destroyGameObjectAtEnd;
     private void Start()
     {
         text.SetActive(false);
@@ -36,7 +37,7 @@ public class Dialouge : MonoBehaviour
     }
     internal void TriggerDialogue()
     {
-       
+            text.GetComponent<TextMeshProUGUI>().text = dialouge;
             text.SetActive(true);
             AudioManager.instance.SetDiaolgue(dialogueNumber);
         if (NextSequenceTrigger != null)
@@ -51,8 +52,11 @@ public class Dialouge : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         text.SetActive(false);
-      
-        Destroy(this.gameObject); 
+
+        if (destroyGameObjectAtEnd)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }
