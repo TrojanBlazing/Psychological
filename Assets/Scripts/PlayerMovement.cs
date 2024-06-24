@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     float rotationX;
     
     [SerializeField] GameObject InventoryUI;
-    int inventoryToggle = 0;
+    //int inventoryToggle = 0;
     //Point light on player
     [SerializeField] Light playerPointLight;
     [SerializeField] float crouchPlayerLightIntensity;

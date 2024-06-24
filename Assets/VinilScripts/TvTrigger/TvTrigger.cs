@@ -7,6 +7,10 @@ public class TvTrigger : MonoBehaviour
     [SerializeField] private GameObject TV;
  
     [SerializeField] private GameObject trigger;
+
+    
+
+    internal bool isTriggered;
     void Start()
     {
         TV.SetActive(false);
@@ -18,8 +22,14 @@ public class TvTrigger : MonoBehaviour
         {
             TV.SetActive(true);
             trigger.SetActive(true);
-          
-
+           
+            isTriggered = true;
+           
         }
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
     }
 }

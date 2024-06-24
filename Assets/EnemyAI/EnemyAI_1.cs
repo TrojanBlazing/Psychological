@@ -24,12 +24,12 @@ public class EnemyAI_1 : MonoBehaviour
     internal bool objectFell;
 
     //revolve
-    [SerializeField] float distance = 5f; // Distance from the player
+    //[SerializeField] float distance = 5f; // Distance from the player
     [SerializeField] float rotateSpeed = 5f;
     float enemyRevolveTimer = 0f;
     [SerializeField] float enemyRevolveTime;
 
-    private float angle = 0f;
+   // private float angle = 0f;
     //ref to hiding system for last player pos
     [SerializeField] HidingSystem hidingSystem;
     void Start()

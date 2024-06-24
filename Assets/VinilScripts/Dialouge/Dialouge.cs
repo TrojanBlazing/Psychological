@@ -39,7 +39,10 @@ public class Dialouge : MonoBehaviour
        
             text.SetActive(true);
             AudioManager.instance.SetDiaolgue(dialogueNumber);
-           NextSequenceTrigger.SetActive(true) ;
+        if (NextSequenceTrigger != null)
+        {
+            NextSequenceTrigger.SetActive(true);
+        }
             StartCoroutine(TextDisable());
            
         }
