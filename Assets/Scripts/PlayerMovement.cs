@@ -84,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
     //testbool
     [SerializeField]
     private bool testbool;
+
+  
     private void Start()
     {
         if (testbool)
@@ -324,7 +326,8 @@ public class PlayerMovement : MonoBehaviour
             rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
             playerCam.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, playerInputAction.PlayerMovement.Look.ReadValue<Vector2>().x * lookSpeedX, 0);
-        }
+        
+    }
 
     void ApplyMovement()
     {

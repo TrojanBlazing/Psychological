@@ -22,6 +22,7 @@ TagManager:
   - HidingSpot
   - GhostTrigger
   - FlashlightPickup
+  - FlashReveal
   layers:
   - Default
   - TransparentFX

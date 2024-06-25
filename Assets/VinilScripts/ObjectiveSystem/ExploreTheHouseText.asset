@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0421a7ad0031b048b758099dbefa523, type: 3}
   m_Name: ExploreTheHouseText
   m_EditorClassIdentifier: 
-  urIcon: {fileID: 21300000, guid: 0a5a6c4a55369ff468288f93fc7de8b8, type: 3}
+  urIcon: {fileID: 21300000, guid: 603eabcd71ec55e41be090a50f8b646e, type: 3}
   NotificationMessage: EXPLORE THE HOUSE
   removeAfterExit: 1
   disableAfterTimer: 0

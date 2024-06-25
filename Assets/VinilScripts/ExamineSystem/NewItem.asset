@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f92a62a29f02c47b3a7a729b454249, type: 3}
   m_Name: NewItem
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
-  itemDescription: 
+  itemSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  itemDescription: dgaiudga

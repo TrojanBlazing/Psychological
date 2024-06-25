@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Global Volume Profile
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 7885155987918384899}
---- !u!114 &7885155987918384899
+  - {fileID: 516462191535186296}
+--- !u!114 &516462191535186296
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
